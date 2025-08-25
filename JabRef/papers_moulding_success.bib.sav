@@ -1,0 +1,65 @@
+% Encoding: UTF-8
+@Article{Hurry2021,
+  author    = {Hurry, Georgia and Maluenda, Elodie and Sarr, Anouk and Belli, Alessandro and Hamilton, Phineas and Duron, Olivier and Plantard, Olivier and Voordouw, Maarten},
+  title     = {Infection with Borrelia afzelii reduces moulting time of Ixodes ricinus ticks},
+  year      = {2021},
+  month     = jan,
+  doi       = {10.21203/rs.3.rs-139147/v1},
+  publisher = {Research Square Platform LLC},
+}
+
+@Article{Chilton2000,
+  author    = {Chilton, Neil B and Andrews, Ross H and Bull, C.Michael},
+  journal   = {International Journal for Parasitology},
+  title     = {Influence of temperature and relative humidity on the moulting success of Amblyomma limbatum and Aponomma hydrosauri (Acari: Ixodidae) larvae and nymphs},
+  year      = {2000},
+  issn      = {0020-7519},
+  month     = aug,
+  number    = {9},
+  pages     = {973--979},
+  volume    = {30},
+  doi       = {10.1016/s0020-7519(00)00085-0},
+  publisher = {Elsevier BV},
+}
+
+@Article{Gray2021,
+  author    = {Gray, Jeremy and Kahl, Olaf and Zintl, Annetta},
+  journal   = {Ticks and Tick-borne Diseases},
+  title     = {What do we still need to know about Ixodes ricinus?},
+  year      = {2021},
+  issn      = {1877-959X},
+  month     = may,
+  number    = {3},
+  pages     = {101682},
+  volume    = {12},
+  doi       = {10.1016/j.ttbdis.2021.101682},
+  publisher = {Elsevier BV},
+}
+
+@Article{Randolph1994,
+  author    = {Randolph, S.E.},
+  journal   = {Parasitology},
+  title     = {Density-dependent acquired resistance to ticks in natural hosts, independent of concurrent infection with Babesia microti},
+  year      = {1994},
+  issn      = {1469-8161},
+  month     = may,
+  number    = {4},
+  pages     = {413--419},
+  volume    = {108},
+  doi       = {10.1017/s003118200007596x},
+  publisher = {Cambridge University Press (CUP)},
+}
+
+@InBook{Dautel2016,
+  author    = {Dautel, H. and Kämmer, D. and Kahl, O.},
+  pages     = {335--349},
+  publisher = {Brill | Wageningen Academic},
+  title     = {24. How an extreme weather spell in winter can influence vector tick abundance and tick-borne disease incidence},
+  year      = {2016},
+  isbn      = {9789086868384},
+  month     = nov,
+  booktitle = {Ecology and prevention of Lyme borreliosis},
+  doi       = {10.3920/978-90-8686-838-4_24},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

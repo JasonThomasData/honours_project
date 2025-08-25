@@ -1,0 +1,58 @@
+% Encoding: UTF-8
+@Article{Bown2008,
+  author    = {Bown, K.J. and Lambin, X. and Telford, G.R. and Ogden, N.H. and Telfer, S. and Woldehiwet, Z. and Birtles, R.J.},
+  journal   = {Applied and Environmental Microbiology},
+  title     = {Relative Importance of Ixodes ricinus and Ixodes trianguliceps as Vectors for Anaplasma phagocytophilum and Babesia microti in Field Vole ( Microtus agrestis ) Populations},
+  year      = {2008},
+  issn      = {1098-5336},
+  month     = dec,
+  number    = {23},
+  pages     = {7118--7125},
+  volume    = {74},
+  doi       = {10.1128/aem.00625-08},
+  publisher = {American Society for Microbiology},
+}
+
+@Article{Bown2003,
+  author    = {Bown, K.J. and Begon, M. and Bennett, M. and Woldehiwet, Z. and Ogden, N.H.},
+  journal   = {Emerging Infectious Diseases},
+  title     = {Seasonal Dynamics ofAnaplasmaphagocytophilain a Rodent-Tick (Ixodes trianguliceps) System, United Kingdom},
+  year      = {2003},
+  issn      = {1080-6059},
+  month     = jan,
+  number    = {1},
+  pages     = {63--70},
+  volume    = {9},
+  doi       = {10.3201/eid0901.020169},
+  publisher = {Centers for Disease Control and Prevention (CDC)},
+}
+
+@Article{Bown2009,
+  author    = {Bown, Kevin J. and Lambin, Xavier and Ogden, Nicholas H. and Begon, Michael and Telford, Gill and Woldehiwet, Zerai and Birtles, Richard J.},
+  journal   = {Emerging Infectious Diseases},
+  title     = {DelineatingAnaplasma phagocytophilumEcotypes in Coexisting, Discrete Enzootic Cycles},
+  year      = {2009},
+  issn      = {1080-6059},
+  month     = dec,
+  number    = {12},
+  pages     = {1948--1954},
+  volume    = {15},
+  doi       = {10.3201/eid1512.090178},
+  publisher = {Centers for Disease Control and Prevention (CDC)},
+}
+
+@Article{Bown2011,
+  author    = {Bown, Kevin J. and Lambin, Xavier and Telford, Gill and Heyder-Bruckner, Diane and Ogden, Nicholas H. and Birtles, Richard J.},
+  journal   = {Vector-Borne and Zoonotic Diseases},
+  title     = {The Common Shrew (Sorex araneus): A Neglected Host of Tick-Borne Infections?},
+  year      = {2011},
+  issn      = {1557-7759},
+  month     = jul,
+  number    = {7},
+  pages     = {947--953},
+  volume    = {11},
+  doi       = {10.1089/vbz.2010.0185},
+  publisher = {Mary Ann Liebert Inc},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

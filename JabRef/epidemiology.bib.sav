@@ -1,0 +1,31 @@
+% Encoding: UTF-8
+
+@Article{Lim_2020,
+  author    = {Lim, J. and Cho, S. and Ryu, S. and Pak, S.},
+  title     = {Interpretation of the Basic and Effective Reproduction Number},
+  journal   = {Journal of Preventive Medicine and Public Health},
+  year      = {2020},
+  volume    = {53},
+  number    = {6},
+  pages     = {405--408},
+  month     = nov,
+  issn      = {2233-4521},
+  doi       = {10.3961/jpmph.20.288},
+  publisher = {Korean Society for Preventive Medicine},
+}
+
+@Article{Jewell_2022,
+  author    = {Jewell, N.P. and Lewnard, J.A.},
+  title     = {On the use of the Reproduction Number for SARS-COV-2: Estimation, Misinterpretations and Relationships with other Ecological Measures},
+  journal   = {Journal of the Royal Statistical Society Series A: Statistics in Society},
+  year      = {2022},
+  volume    = {185},
+  number    = {Supplement_1},
+  pages     = {S16–S27},
+  month     = jun,
+  issn      = {1467-985X},
+  doi       = {10.1111/rssa.12860},
+  publisher = {Oxford University Press (OUP)},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
