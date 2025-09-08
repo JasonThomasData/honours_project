@@ -1,0 +1,233 @@
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{empheq}
+\usepackage{enumitem}
+\usepackage{titling}
+\usepackage{cmbright} % Easier to read on a screen
+\usepackage{amsmath}
+ \geometry{
+ a4paper,
+ total={170mm,260mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\setlength\parskip{0.5em}
+\setlength{\columnsep}{1cm}
+\setlength{\headheight}{12.49998pt}
+
+\title{Formula sheet (Mathematical Epidemiology)}
+\author{Jason Thomas}
+\date{May 2025}
+ 
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[R]{\includegraphics[width=2cm]{RMIT-University-Logo-Vector.svg--3368889018.png}}
+    \fancyhead[C]{\thedate}
+    \fancyhead[L]{\thetitle}
+    \fancyhead[R]{\theauthor}
+}
+\pagestyle{plain}
+
+\makeatletter
+
+\def\@maketitle{%
+  \null
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE Frequently-used definitions in Mathematical Epidemiology \par}%
+    %{\large \@date}%
+  \end{center}%
+  \vspace{1em}
+  \par
+}
+%}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{\centering{Definitions}}
+
+$ R_0 $ is the most important concept in this field. It can be estimated empirically via contact tracing network data, or via modelling processes.
+
+\begin{description}[leftmargin=1cm, style=nextline]
+
+  \item[$ R_0 $]
+     is the basic reproduction number. How many new infections per infection, assuming entire population is susceptible. This is a notion of generational growth, but not to be confused with real-time growth $ r $.
+  \item[$ V_c $]
+     is vaccine coverage.
+  \item[$ V_e \in {[0,1]} $]
+    is vaccine effectiveness.
+  \item[$ \left(1 - \frac{1}{R_0} \right) / V_e $]
+    the control effort, or $ V_c $ required to reach herd immunity.
+  \item[$ R = (1-V_c) R_0 + V_c R_0 (1-V_e) $]
+    is the effective reproduction number, for any time after the outbreak is underway.
+\end{description}
+
+\section*{\centering{SIR compartment models (deterministic)}}
+
+There are many compartment population models, but the most-basic is the SIR model.
+
+\begin{description}[leftmargin=1cm, style=nextline]
+  \item[$ c $]
+    is the contact rate.
+  \item[$ v $]
+    is the probability of transmission.
+  \item[$ T_1 $]
+    is the time of infection.
+  \item[$ T_2 - T_1 = \frac{1}{\gamma}$]
+    is the incubation period, or average time to recover, if the incubation period follows an Exponential distribution. For a system of equations with a single Infectious equation, this is implicitly true, but it is possible to have a summation of multiple $ \frac{dI}{dt} $, which will follow a Gamma distribution.
+  \item[$\frac{1}{\mu + \gamma}$]
+    where an SIR model includes natural mortality $ \mu $, then this is the average infection period.
+  \item[$ S, I, R $]
+    is susceptible, infectious and recovered populations in an SIR model.
+  \item[$ N = S+I+R $]
+    is the population size.
+  \item[$ A $]
+    is the area that a disease covers.
+  \item[$ c = \frac{kN}{A} $]
+    where $ k $ is a constant. This is true for density dependent transmission.
+  \item[$ p := \frac{I}{N} $]
+    is probability of transmission, assuming random mixing, which is assumed for all compartment population models.
+\end{description}
+
+The change in the susceptible population is:
+
+\begin{equation}
+    \frac{dS}{dt} = cvpS
+\end{equation}
+
+We can use (1) to define $ \beta $ in systems (2), (3), (4):
+
+For density-dependent transmission:
+
+\begin{align}
+    \frac{dS}{dt} &= -\beta SI \nonumber \\
+    \frac{dI}{dt} &= \beta SI - \gamma I \\
+    \frac{dR}{dt} &= \gamma I \nonumber
+\end{align}
+
+For density-dependent transmission, where $ A $ is a function of time:
+
+\begin{align}
+    \frac{dS}{dt} &= -\frac{\beta}{A} SI \nonumber \\
+    \frac{dI}{dt} &= \frac{\beta}{A} SI - \gamma I \\
+    \frac{dR}{dt} &= \gamma I \nonumber
+\end{align}
+
+For frequency-dependent transmission:
+
+\begin{align}
+    \frac{dS}{dt} &= -\beta \frac{SI}{N} \nonumber \\
+    \frac{dI}{dt} &= \beta \frac{SI}{N} - \gamma I \\
+    \frac{dR}{dt} &= \gamma I \nonumber
+\end{align}
+
+Common additions to these models are demographics $ b $, which account for natural births and natural mortality, $ \mu $. For example, using system (2):
+
+\begin{align}
+    \frac{dS}{dt} &= b -\beta SI - \mu S \nonumber \\
+    \frac{dI}{dt} &= -\beta SI - (\gamma + \mu) I \nonumber \\
+    \frac{dR}{dt} &= \gamma I - \mu R \nonumber 
+\end{align}
+
+Assuming the entire population is susceptible, and $ N = S $, then:
+
+\begin{equation}
+    R_0 = vc(T_2 - T_1)
+\end{equation}
+
+Then by using (5), $ R_0 $ can be found for systems:
+
+\begin{align}
+    \text{(2): } R_0 &= \frac{\beta N}{\gamma} \nonumber \\
+    \text{(3): } R_0 &= \frac{\beta N}{A \gamma} \nonumber \\
+    \text{(4): } R_0 &= \frac{\beta}{\gamma} \nonumber
+\end{align}
+
+The final size of an outbreak is $ s(t=\infty) $, which is the population never infected at any point: $ S(\infty) = 1 - s(\infty) $.
+
+\begin{equation}
+    ln(s(\infty)) = R_0(s(\infty) - 1) \nonumber
+\end{equation}
+
+The final size can be approximated via fixed point iteration.
+
+\section*{\centering{Branching process simulations (stochastic)}}
+
+The early stages of an outbreak are unpredictable, and can be modelled a branching process simulation. This models the randomness in generational growth.
+
+\begin{description}[leftmargin=1cm, style=nextline]
+  \item[$ p_0, p_1, p_2 ... p_n $]
+    are the probabilities of $ 0, 1, 2 ... n $ offspring, or new infections in a generation.
+  \item[$ R_0 = p_0 0 + p_1 1 + p_2 2 + ... + p_i i = \sum_{i=0}^\infty i p_i $]
+    
+  \item[$ q = p_0 + p_1 q + p_2 q^2 + ... + p_\infty q^\infty $]
+    is the probability of extinction. You need each term to the power of the offspring count, because there are that many infected that must have 0 new infections for there to be an extinction.
+  \item[$ q_n = p_0 \sum_{i=1}^\infty p_i (q_{n-1})^i $]
+    is a recurrence relation that quantifies the probability the pathogen is extinct after n steps.
+  \item[$ q = p_0 \sum_{i=1}^\infty p_i q^i = g(q) $]
+    where $ n \to \infty $. Then $ q=g(q) $ is a function that is equal to its independent variable, therefore we can use Fixed Point Iteration to approximate this value to some tolerance of error.
+  \item[$ g(s) := p_0 \sum_{i=1}^\infty p_i s^i $]
+    so that we let $ s $ vary. We need a candidate distribution for the offspring distribution.
+\end{description}
+
+To include individual variation in disease history and behaviour, the branching process simulation can have a random variable to represent disease history.
+
+If $ v \sim Gamma(\alpha, \beta) $, where $ \alpha, \beta $ are the shape and scale parameters of the gamma distribution, and $ v $ represents individual variation of infected host, then $ Z \sim Poisson(v) $ is an offspring distribution. Specifically, this is the Negative Binomial distribution. It is well-documented that the Negative Binomial distribution is a good fit for many human and animal tick-borne disease datasets. 
+
+Then the probability generating function, used to calculate the probability of disease extinction, includes the Negative Binomial distribution as below:
+
+\begin{equation}
+g(s) := \left(1 + \frac{R_0}{k}(s-1)\right)^{-k} \nonumber
+\end{equation}
+
+\section*{\centering{Multi-host disease systems}}
+
+These can be sexually-transmitted disease networks, which include genders, or otherwise individuals with different behaviours. This also applies to vector-borne disease networks, like the interactions between ticks and vertebrate hosts.
+
+We can model these interactions between $ a $ individuals by using a next generation matrix $ A $, where $ a_{ij} $ is the effect that $ j $ has on $ i $.
+
+\begin{equation}
+    A := \left[
+    \begin{matrix}
+        a_{11} & a_{12} & ... & a_{1j} \\
+        a_{21} & a_{22} & ... & a_{2j} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{i1} & a_{i2} & ... & a_{ij} 
+    \end{matrix}
+    \right] \nonumber 
+\end{equation}
+
+This is similar to a Markov Chain in the sense that there is a population vector, and this is Markovian in the sense that only the current population determines the next generation's population.
+
+\begin{description}[leftmargin=1cm, style=nextline]
+  \item[$ R_0 = \max\{|\lambda_1|, |\lambda_2|, ... \} $]
+    is the dominant eigenvalue of A. This is also known as the spectral radius, $ \rho(A) $.
+  \item[$ a_{ij} , i=j $]
+    is the effect that a host or vector has on others of its own type. This could be homosexual people in a sexually-transmitted disease network.
+  \item[$ \mathcal{T} $]
+    is the type reproduction number. You can visualise a multi-host disease network as a tree, where each node has one of the available types. Set your type of interest to type $ 1 $, which should be the same type as the root node. Then $ \mathcal{T} $ is a positive integer count of leaf nodes of the same type as the root node, and the tree is the smallest tree that permits this structure.
+  \item[$ e $]
+    is a unit vector for type $ 1 $, analogous to a unit vector along a single axis in a vector space.
+  \item[$ P $]
+    is a projection matrix for type $ 1 $. This is a matrix of same order and $ A $, with $ a_{11} = 1$, otherwise $ a_{ij} = 0 $.
+  \item[$1 - 1/\mathcal{T}_1$]
+    is a measure of the control effort, if only $\mathcal{T}_1$ is targeted for control, which is similar to the definition of $ V_c $, but note we assume $ V_e = 1 $.
+    
+\end{description}
+
+Then:
+\begin{equation}
+ \mathcal{T}_1 = e^T A(I - (I-P)A)^{-1}e \nonumber
+\end{equation}
+
+where $ I $ is the identity matrix of same order as $ A $.
+
+Note: there is a method to convert a compartment model into a next-generation matrix, and back again, but it is too cumbersome to write here.
+
+\end{document}
