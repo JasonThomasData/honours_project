@@ -575,7 +575,7 @@ Conceptually, we could fit a probability distribution to $ X $ and then draw ran
     \caption{A toy example of how we find the offspring distribution. Each nymph has its own contact network with larvae. The out degree for each nymph is the number of larvae that it coaggregates with. A stochastic step is applied to the vector $ X $ to determine the number of larvae that become infectious nymphs. $ R_0 $ and $ k $ are then found by fitting the reparameterised negative binomial distribution to $ X_\alpha $.}\label{fig:coaggregation_diagram}
 \end{figure}
 
-\subsection{Fitting a distribution to \texorpdfstring{$ X_\alpha $}{X_alpha}}
+\subsection{Fitting a distribution to \texorpdfstring{$ X_\alpha $}{X\_alpha}}
 
 Before proceeding, we can find a probability distribution that is a good fit to the co-aggregation data $ X $, and then the offspring data $ X_\alpha $. Several discrete distributions could be the best choice: geometric, Poisson and negative binomial distributions could all fit. The negative binomial distribution is often a good fit to parasite aggregation data, and, Lloyd-Smith and others showed this was the best fit for several disease transmission networks; we can expect that the negative binomial distribution will be the best fit. The following assumes that the reparameterised negative binomial distribution is an appropriate fit to $ X $. Later, we test its goodness-of-fit against the Poisson and geometric distributions.
 
