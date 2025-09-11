@@ -62,7 +62,6 @@ def get_coaggregation_per_vertebrate(dataframe, ricinus, trianguliceps):
             coaggregation_per_verterbrate.append(int(0))
     return coaggregation_per_verterbrate
 
-
 def simulate_offspring_data(alpha, fitted_coaggregation_distribution_params, simulation_size, report=True):
     if report:
         print("alpha = {0:.04f}".format(alpha))
