@@ -2,12 +2,20 @@ This is the analysis and Latex files for my 2025 honours project: "Probability o
 
 ### Install code
 
-On a linux terminal, in the `HonoursProject` folder, do:
+Using Bash, in the `HonoursProject/src` folder, do:
 
 ```
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
+
+### Run tests
+
+Tests are available where it was appropriate to write them.
+
+```
+python -m unittest tests.py
 ```
 
 ### Run Jupyter Notebooks
