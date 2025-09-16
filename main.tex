@@ -227,7 +227,15 @@ To address the heterogeneity in the ... TALK ABOUT THE INDIVIDUAL REPRODUCTIVE N
 
 Superspreading is not just a feature of pathogens transmitted between humans; pathogens transmitted between other animals can exhibit the same behaviour, and there are multiple ways for superspreading to occur within those transmission networks. While it is true that some infected individuals will come into contact with more of their peers, and are in a sense superspreaders, it is also true that some individuals have a higher infectiousness and are "supersheaders" \cite{VanderWaal_2016}. This implies we can expect many reasons to find TBD transmission networks that feature heterogeneity. 
 
-For an individual tick to infect many others, a necessary but insufficient condition is aggregation. To understand the heterogeneity in tick aggregation, the 80:20 rule is often cited. This is where 80\% of cases are caused by 20\% of infected individuals. Many vector-borne and sexually-transmitted diseases follow the 80:20 rule \cite{Woolhouse1997}. This heterogeneity is also present in TBD systems; there is significant evidence to suggest that aggregation data follows the 80:20 rule \cite{Ferreri2014, Brunner2008, JohnstoneRobertson2020}. When larvae and nymphs aggregate on the same vertebrate hosts, they are said to co-aggregate. Some evidence suggests that 20\% of vertebrate hosts were responsible for 74\% of transmission potential, but that approximation jumps to 94\% when only co-feeding ticks were considered \cite{Perkins_2003}.
+For an individual tick to infect many others, a necessary but insufficient condition is aggregation. To understand the heterogeneity in tick aggregation, the 80:20 rule is often cited. This is where 80\% of cases are caused by 20\% of infected individuals. Many vector-borne and sexually-transmitted diseases follow the 80:20 rule \cite{Woolhouse1997}. This heterogeneity is also present in TBD systems; there is significant evidence to suggest that aggregation data follows the 80:20 rule \cite{Ferreri2014, Brunner2008, JohnstoneRobertson2020}. When larvae and nymphs aggregate on the same vertebrate hosts, they are said to co-aggregate. 
+
+An interesting result in 2003 showed that when co-feeding ticks were considered, the transmission potential of the most-infested vertebrate hosts was even larger. Transmission potential was calculated as:
+
+\begin{equation} \label{PerkinsR0Estimate}
+	R_0 \propto \sum_i^m v_i^2 h_i
+\end{equation}
+
+where $ m $ is the number of vertebrates, $ v_i $ is the proportion of all ticks found on vertebrate $ i $, and $ h_i $ is the proportion of vertebrates. With this, Perkins et al used Lorenz curves to quantify the heterogeneity in transmission potential. They found that 20\% of vertebrate hosts were responsible for 74\% of transmission potential, but that approximation jumps to 94\% when only co-feeding ticks were considered \cite{Perkins_2003}.
 
 The heterogeneity that is present in many transmission networks affects the choice of models we may choose to employ. Classically, models of disease outbreaks have assumed homogeneity in individual infectiousness and behaviour \cite{Garske2008}. These have typically been compartment models; the Susceptible-Infectious-Recovered systems of ordinary differential equations are common, although they can take many forms with more compartments defined. An assumption of those models is that the compartments are each large enough that the behaviour of individuals in those compartments is homogeneous. This is an appropriate assumption once an outbreak is established. However, at the start of an outbreak, the number of infectious individuals must be small. This exposes a limitation: compartment models that lack a stochastic element are insufficient to describe the very early stages of an outbreak \cite{Brauer2008a}. One approach is to use the SIR modelling framework to define stochastic differential equations \cite{Allen2017}, but there are other stochastic methods available. Also in any population, the degree infectiousness is distributed continuously, which further impedes our ability to divide a population into homogeneous subgroups \cite{LloydSmith2005}. This thesis addresses the heterogeneity that occurs in TBD systems by using a branching process simulation, which is defined in a later section.
 
@@ -245,18 +253,24 @@ The work by Lloyd-Smith et al showed introduced the notion of an individual repr
 
 This is useful for several reasons. It allows us to query the effect of individual heterogeneity, and Lloyd-Smith et al found systems with high individual variation had infrequent but explosive outbreaks. This is a useful result because it allows for estimating the probability that a chain of transmission becomes extinct via numerical approximation, which is explored later in this project.
 
-The negative binomial distribution is also important in modelling TBD systems. It has become the de-facto choice for tick aggregation data, and for parasite aggregation data more generally. In 1998, Shaw et al showed that the NB distribution was an appropriate fit for 90\% of aggregation datasets that they looked at \cite{SHAW1998}. Many articles concerning tick aggregation data have used the negative binomial distribution \cite{Bown2003, HARRISON2012, Brunner2008}. Other work suggests that when tick aggregation data has a heavy right tail, which indicates extreme heterogeneity in vectors on hosts, then the Power-Law distribution is a better fit for some purposes \cite{Ferreri2014, Bisanzio2010}.
+The negative binomial distribution is also important in modelling TBD systems. It has become the de facto choice for tick aggregation data, and for parasite aggregation data more generally. In 1998, Shaw et al showed that the NB distribution was an appropriate fit for 90\% of aggregation datasets that they looked at \cite{SHAW1998}. Many articles concerning tick aggregation data have used the negative binomial distribution \cite{Bown2003, HARRISON2012, Brunner2008}. Other work suggests that when tick aggregation data has a heavy right tail, which indicates extreme heterogeneity in vectors on hosts, then the Power-Law distribution is a better fit for some purposes \cite{Ferreri2014, Bisanzio2010}.
 
 \subsection{Thinking about TBD transmission using contact networks}
 
-Contact networks are a frequently-used tool in the analysis of how pathogens spread. Contact networks are graphs where vertices represent individuals and edges between them represent contacts. Those contacts may also facilitate transmission; a transmission network is contained within a contact network GET CITATION FOR THIS. In the case of a vector-borne disease, a bipartite graph is useful to represent contacts between vectors and hosts.
+Contact networks are a frequently-used tool in the analysis of how pathogens spread. Contact networks are graphs where vertices represent individuals and edges between them represent contacts. Those contacts may also facilitate transmission; the edges and nodes of a transmission network is contained within a contact network GET CITATION FOR THIS. In the case of a vector-borne disease, a bipartite graph is useful to represent contacts between vectors and hosts.
 
 Network thinking can help overcome some of the problems associated with deterministic compartment models; network models allow for representing the heterogeneity that exists in individual behaviour. Superspreaders can feature in these networks as nodes 
 This can lead to more useful outcomes, as some simulations suggest that stochastic methods lead to more accurate estimates for $ R_0 $ when early outbreak data is used \cite{Brauer2008b}.
 
 In 2010, Bisanzio et al modelled the potential spread of TBE and Lyme disease. Their analysis focused on co-aggregation data for \textit{I. ricinus}. They made a bipartite contact network to represent the potential for transmission between vectors and hosts. Their analysis, which used bipartite networks to represent contacts between vector and host, showed that extreme aggregation on hosts would greatly impact the epidemic threshold \cite{Bisanzio2010}. In 2016, the work of Ferreri et al followed the work of Bisanzio et al. Their model represented aggregation as star graphs, with vertebrates at the centre and ticks as peripheral nodes. Their analysis focused on co-feeding transmission, but the model did not differentiate between the different life stages of tick.
 
-In 2020, the work of Johnstone-Robertsone et al characterised a tick-host contact network as a directed, acyclic, bipartite graph. The ticks represent one node, but the edges leading away from the vertebrate host node $ k_{out} $ represent the number of larvae that co-aggregate, and $ k_{in} $ represent the number of nymphs that co-aggregate. However, there is only one node per tick. This implies that the tick nodes represent a tick in its larval and then nymphal life stages. Johnstone-Robertson et al then superimposed a transmission network; co-feeding (edges between ticks) and systemic (edges from tick-to-host, host-to-tick) \cite{JohnstoneRobertson2020}. This work is the main inspiration for the method, which is presented later in this thesis, of simulating outbreaks by using co-aggregation data.
+In 2020, the work of Johnstone-Robertsone et al characterised a tick-host contact network as a directed, acyclic, bipartite graph. The ticks represent one node, but the edges leading away from the vertebrate host node $ k_{out} $ represent the number of larvae that co-aggregate, and $ k_{in} $ represent the number of nymphs that co-aggregate. However, there is only one node per tick. This implies that the tick nodes represent a tick in its larval and then nymphal life stages. Johnstone-Robertson et al then superimposed a transmission network; co-feeding (edges between ticks) and systemic (edges from tick-to-host, host-to-tick) \cite{JohnstoneRobertson2020}. This work is the main inspiration for the method, which is presented later in this thesis, of simulating outbreaks by using co-aggregation data. An important result in the paper is that for co-feeding transmission, 
+
+\begin{equation} \label{JohnstoneRobertsonR0Estimate}
+	R_0 \propto \frac{\langle k_{in}k_{out} \rangle}{\langle k_{in} \rangle } 
+\end{equation}
+
+where $ k_{in} $ is the number of nymphs and $ k_{out} $ is the number of larvae that are found on an individual vertebrate host.
 
 \subsection{Galton-Watson Branching Processes}
 
@@ -331,6 +345,8 @@ This project makes use of data provided by **INSERT** Kevin Bown. The **INSERT**
 The analysis by Bown et al originally **INSERT DETAILS ABOUT WHY THEY COLLECTED THE DATA, HOW, ETC**.
 
 The data includes only the tick species \textit{I. trianguliceps} and  \textit{I. ricinus}. The host species were mostly "field voles", (\textit{Microtus agrestis}), and "common shrews" (\textit{Sorex araneus}). The researchers also encountered small numbers of other small mammals. The common shrew and field voles vastly outnumber other vertebrate hosts in the Kielder Forest data. The use of that data in this project focuses on the common shrew and field vole observations. 
+
+\subsection{Evidence of co-aggregation}
 
 Of interest is whether larvae and nymphs of a particular tick species have the same seasonal variation in activity. If the larvae and nymphs are active at different times, then the opportunity for co-feeding transmission to occur is limited. Seasonal activity for nymphs and larvae, for \textit{I. ricinus} and \textit{I. trianguliceps}, collected at the Kielder Forest is presented in Figure \ref{fig:kielder_seasonal}.
 
@@ -433,9 +449,36 @@ We used the SciPy package in Python to perform the test. We found weak evidence 
 	\label{tab:spearman_kielder}
 \end{table}
 
-Assuming confidence of $ 0.95 $, then the pvalue $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of co-aggregation.
+Assuming confidence of $ 0.95 $, then the pvalue $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of co-aggregation. Not finding evidence of correlation should not prevent us from doing the analysis.
 
-AN IMPORTANT QUESTION IS, WHAT DO WE DO WITH THIS INFORMATION. DO WE NOT ANALYSE I TRIANGULICEPS ON FIELD VOLES?
+\subsection{Tick burden heterogeneity}
+
+Some vertebrate hosts attract many more ticks than others, and measuring that heterogeneity has been addressed or estimated in many studies \cite{}. Of particular interest is research from Perkins et al in 2003 \cite{Perkins_2003}, which quantified heterogeneity in transmission potential for co-feeding transmission by plotting Lorenz curves, and then calculating a Gini coefficient to describe the overall heterogeneity. This project will also use Lorenz curves and Gini coefficients to quantify heterogeneity. However, this paper will compare the Perkins approach to finding Lorenz curves with another approach that uses a modified version of the formula provided by Johnstone-Robertson et al \eqref{JohnstoneRobertsonR0Estimate}. 
+
+A limitation of using the Perkins formula \eqref{PerkinsR0Estimate} is that burdens of ticks in different life stages are grouped together in the term $ v_i^2 $. However, this project makes the simplifying assumption that co-feeding transmission is from infected nymph to nearby larvae only (see the section "Finding a candidate offspring distribution" for more on this reasoning). Given that simplifying assumption, the Perkins is unsuitable since it will not reflect that co-feeding transmission is not possible on a vertebrate host when either the larval or nymphal burdens on are $ 0 $. Therefore, this project seeks another method to measure the inequalities in transmission potentials that vertebrate hosts have, due to heterogeneity in co-aggregation observed on those hosts. We use a modified version of the Johnstone-Robertson formula \eqref{JohnstoneRobertsonR0Estimate} for this.
+
+In the Johnstone-Robertson paper, an important nuance is that $ k_{in} $ and $ k_{out} $ are respectively the nymphal and larval burdens of a host during its lifetime; to apply the calculation of $ R_0 $ to co-feeding transmission, a term $ \nu_{ln} $ is needed to consider temporal and spatial requirements. But, if we use data of vertebrates at a particular time as with the Kielder Forest data, then we can guarantee that the temporal requirement for co-feeding transmission to occur - that there must be co-incident co-aggregation - is satisfied.
+
+So, let:
+
+\begin{description}[leftmargin=1cm, style=nextline]
+	\item[$ b_n $] be the nymphal burden observed on an individual vertebrate host, which is analogous to $ k_{in} $, except that $ b_n $ only applies at the time of data collection.
+	\item[$ b_l $] be the larval burden observed, which is analogous to $ k_{out} $.
+	\item[$ m $] be the number of vertebrate hosts.
+\end{description}
+
+The modified version of \eqref{JohnstoneRobertsonR0Estimate} is now:
+ 
+\begin{align}
+	R_0 \propto \frac{\langle b_n b_l \rangle}{\langle b_l \rangle} &= \frac{(1/m)\sum_{a=1}^m (b_n b_l)_a}{(1/m)\sum_{a=1}^m (b_n)_a} \nonumber \\ 
+																	&= \frac{\sum_{a=1}^m (b_n b_l )_a}{\sum_{a=1}^m (b_n)_a} \nonumber \\ 
+																	&= \frac{(b_n b_l)_1}{\sum_{a=1}^m (b_n)_a} + \frac{(b_n b_l)_2}{\sum_{a=1}^m (b_n)_a} + ... + \frac{(b_n b_l)_m}{\sum_{a=1}^m (b_n)_a}
+\end{align}
+
+Then, to obtain a result that is similar to that of Perkins et al, we can order the vertebrates by the product $ b_n b_l $ in descending order, with $ a=1 $ denoting the vertebrate with the largest relative transmission potential, as with the Perkins formula. Below, we plot the Perkins formula to determine the relative effect of removing the vertebrates that have the largest tick burdens. We then plot the effect of removing the vertebrates that have the largest transmission potential. The shape of the Lorenz curve is useful as a visual aide for understanding the inequality in transmission potentials. To calculate the Gini coefficient, we calculate the area between the Lorenz curve and the identity function, since the identity function represents an idealised homogeneous population.
+
+
+
 
 \section{Reproducing the results by Lloyd-Smith et al, 2005}
 
@@ -485,9 +528,7 @@ Then, if we wish to calculate the probability that a chain of transmissions beco
 
 The equation \eqref{LloydSmith_NegBinomPGF_Recurrence1} simplifies to \eqref{LloydSmith_NegBinomPGF_Recurrence2}, because all $ z_m \le 1 $ and $ z_{m+1} \ge z_m $, meaning the series monotonically increases to a finite value. In other words, it converges.
 
-Then $z = g(z) $, which is a function that is equal to its independent variable, which is known as a fixed point. We can approximate the value, via Fixed Point Iteration, to some acceptable measure of error.
-
-This result, with Fixed Point Iteration, we will use later to estimate the probability that a chain of co-feeding transmissions becomes extinct. The code used to recreate the work by Lloyd-Smith and others is available in the appendix at the end of this project.
+Then $z = g(z) $, which is a function that is equal to its independent variable, which is known as a fixed point. We can approximate the value, via Fixed Point Iteration, to some acceptable measure of error. Then this result we will use later to estimate the probability that a chain of co-feeding transmissions becomes extinct. The code used to recreate the work by Lloyd-Smith and others is available in the appendix at the end of this project.
 
 \section{Reparameterisation of the negative binomial distribution}
 
@@ -717,7 +758,6 @@ For the Kielder Forest data, these $ AIC_c $ scores are presented in table \ref{
 \subsection{Fitted co-aggregation and offspring distributions}
 
 
-
 \newpage
 
 \section{Discussion}
@@ -732,7 +772,7 @@ For the Kielder Forest data, these $ AIC_c $ scores are presented in table \ref{
 \printbibliography[heading=none]
 
 \section{Appendix}
-The code to generate all charts and figures used in this project is available in this Github repository: \url{https://github.com/JasonThomasData/maths_notes/tree/master/honoursProjectSrc}
-TODO: create dedicated repo with README explaining how to run scripts.
+
+The author completed all analysis using Python and Jupyter notebooks, and compiled this document using LaTeX (TeXstudio). All analysis, code, and LaTeX source files are available at \url{https://github.com/JasonThomasData/honours_project}.
 
 \end{document}
