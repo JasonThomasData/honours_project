@@ -15,6 +15,7 @@ pip install -r requirements.txt
 With files installed, in the `HonoursProject` folder, do:
 
 ```
+source venv/bin/activate
 jupyter notebook
 ```
 
