@@ -3,6 +3,7 @@
 ### Tests
 
 import unittest
+import pandas
 
 from simulation import simulate_outbreak
 from poisson_process_generator import PoissonProcessGenerator
@@ -61,6 +62,7 @@ class TestSimulateOutbreak(unittest.TestCase):
         self.assertEqual(actual["history"], expected_history)
         self.assertEqual(actual["extinct"], expected_extinct)
         self.assertEqual(actual["population"], expected_population)
+
 
 if __name__ == '__main__':
     unittest.main()

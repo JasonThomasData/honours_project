@@ -44,7 +44,8 @@ def get_aggregation_per_vertebrate(dataframe, ricinus, trianguliceps):
         aggregation_per_verterbrate.append(int(nymph_count+larvae_count))
     return aggregation_per_verterbrate
 
-def get_coaggregation_per_vertebrate(dataframe, ricinus, trianguliceps):
+def get_coaggregation_per_vertebrate_perkins(dataframe, ricinus, trianguliceps):
+    # For the Perkins calculation, I could find no information about what a co-feeding group is, here's my best attempt
     coaggregation_per_verterbrate = []
     for i, row in dataframe.iterrows():
         nymph_count = 0
@@ -61,6 +62,34 @@ def get_coaggregation_per_vertebrate(dataframe, ricinus, trianguliceps):
         else:
             coaggregation_per_verterbrate.append(int(0))
     return coaggregation_per_verterbrate
+
+def get_coaggregation_per_vertebrate_JR(dataframe, ricinus, trianguliceps):
+    # In thesis, b_n*b_l
+    coaggregation_per_verterbrate = []
+    for i, row in dataframe.iterrows():
+        nymph_count = 0
+        larvae_count = 0
+        if ricinus:
+            nymph_count += row["ricinusN"]
+            larvae_count += row["ricinusL"]
+        if trianguliceps:
+            nymph_count += row["triangulicepsN"]
+            larvae_count += row["triangulicepsL"]
+
+        coaggregation_per_verterbrate.append(nymph_count*larvae_count)
+    return coaggregation_per_verterbrate
+
+def get_larval_burden_per_vertebrate(dataframe, ricinus, trianguliceps):
+    larval_burden_per_vertebrate = []
+    for i, row in dataframe.iterrows():
+        larvae_count = 0
+        if ricinus:
+            larvae_count += row["ricinusL"]
+        if trianguliceps:
+            larvae_count += row["triangulicepsL"]
+
+        larval_burden_per_vertebrate.append(larvae_count)
+    return larval_burden_per_vertebrate
 
 def simulate_offspring_data(alpha, fitted_coaggregation_distribution_params, simulation_size, report=True):
     if report:
