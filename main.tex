@@ -131,10 +131,11 @@ Results and findings (four or more sentences).
 \begin{figure}[h!]
     \includegraphics[width=0.99\textwidth, center]{graphical_abstract_mk2.drawio}
     \caption{
-    \textbf{a)} \textit{Branching process}. Co-feeding transmission  occurs when susceptible ticks (usually larvae) attach and feed in close proximity to one or more infectious ticks (usually a nymph) and acquire a pathogen directly. This project introduces simplifying assumptions about the situation in nature: i) all larvae are susceptible; ii) larvae and nymphs might co-aggregate on one host, but they might not be close enough for transmission to occur; iii) there are no other routes of transmission; iv) two larvae that become infectious nymphs will not co-feed on the same vertebrate. \\ 
+    \textbf{a)} \textit{Branching process}. Co-feeding transmission  occurs when susceptible ticks (usually larvae) attach and feed in close proximity to one or more infectious ticks (usually a nymph) and acquire a pathogen directly. This project introduces simplifying assumptions about the situation in nature: i) all larvae are susceptible; ii) larvae and nymphs might co-feed on one host, but they might not be close enough for transmission to occur; iii) there are no other routes of transmission; iv) two larvae that become infectious nymphs will not co-feed on the same vertebrate. \\ 
     \textbf{b)} \textit{Life cycle}. This life cycle of ticks is: immature ticks are more plentiful, and that they tend to feed on small vertebrates \cite{Randolph1998}. This implies that immature ticks are largely responsible for co-feeding transmission. \\
     \textbf{c)} \textit{Offspring distribution}. An offspring distribution is needed when using a branching process simulation. We use this simulation to calculate the probability that a chain of transmissions, starting with just a single infectious tick, goes extinct. We introduce a method to derive the offspring distribution from commonly-collected tick burden data.
     }
+    \label{fig:graphical_abstract}
 \end{figure}
 
 \newpage
@@ -147,12 +148,9 @@ Results and findings (four or more sentences).
 
 Worldwide, tick-borne diseases (TBD) pose a significant health burden for humans and livestock. That is because ticks carry pathogens that can infect their vertebrate hosts when ticks take blood meals from their hosts. The pathogens that spread when ticks feed can cause diseases, and those diseases often have severe consequences for the individual vertebrate hosts that ticks feed on \cite{Johnson2023e}. This feeding behaviour allows for pathogens to spread either from tick-to-vertebrate-to-tick, or sometimes directly from tick-to-tick.
 
-We can characterise and understand an individual tick's expected behaviour by its life stage. All tick species have four life stages: egg, larva, nymph and adult. During a tick's juvenile life stages - larvae and nymph - it will take blood meals from vertebrate hosts so that it can moult into its next life stage. Female adults will take a blood meal in order to produce eggs, but it will no longer moult \cite{Johnson2023a}.
+We can characterise and understand an individual tick's expected behaviour by its life stage. All tick species have four life stages: egg, larva, nymph and adult. During a tick's juvenile life stages - larvae then nymph - it will take blood meals from vertebrate hosts so that it can moult into its next life stage. Female adults will take a blood meal in order to produce eggs, but it will no longer moult \cite{Johnson2023a}.
 
-When most ticks of a particular life stage feed on a small number of vertebrate hosts, then they are said to aggregate \cite{JohnstoneRobertson2020}. A necessary, but not sufficient, condition for co-feeding transmission to occur is the coincidence of larval and nymphal ticks aggregating on the same host \cite{Ferreri2014}, which is known as co-aggregation. When those ticks co-aggregate at the same time, then this is known as coincident co-aggregation. Field data frequently shows that coincident co-aggregation disproportionately affects only a fraction of the vertebrate host population, and the 80:20 rule is often cited for many parasites (including ticks), where 80\% of ticks can be found on just 20\% of vertebrate hosts \cite{Woolhouse1997}.
-
-FIND A NEW PLACE FOR THIS PARAGRAPH... IF IT'S NEEDED
-A TBD network is a web of transmissions: each edge is a transmission of a pathogen between individual ticks and their vertebrate hosts, and sometimes transmissions directly between individual ticks. TBD networks are complex; some networks of a single pathogen have multiple tick species and multiple host vertebrates \cite{Johnson2023e}. Ticks also exhibit different behaviours depending on seasonal variation \cite{Johnson2023k}. Adding to this complexity is multiple types of transmission, where systemic (tick-to-host) transmission is the most common and co-feeding transmission (tick-to-tick) is less-common \cite{HARRISON2012}.
+When most ticks of a particular life stage feed on a small number of vertebrate hosts, then they are said to aggregate \cite{JohnstoneRobertson2020}. A necessary, but not sufficient, condition for co-feeding transmission to occur is the coincidence of larval and nymphal ticks aggregating on the same host \cite{Ferreri2014}, which is known as co-aggregation. When those ticks co-aggregate at the same time, then this is known as coincident co-aggregation. Field data frequently shows that aggregation disproportionately affects only a fraction of the vertebrate host population, and the 80:20 rule is often cited for many parasites (including ticks), where 80\% of ticks can be found on just 20\% of vertebrate hosts \cite{Woolhouse1997}.
 
 \subsection{Tick biology}
 
@@ -162,21 +160,21 @@ A tick species' family is indicative of its behaviour. \textit{Ixodidae} ticks t
 
 This thesis will focus on species from the \textit{Ixodidae} family of ticks, which pose a more significant health concern for humans \cite{Parola2001}. Specifically, the analysis in this thesis will focus on \textit{Ixodes ricinus} and \textit{Ixodes trianguliceps}, for which we have data. \textit{I. ricinus} is said to be non-nidicolous while \textit{I. trianguliceps} is nidicolous \cite{Nicholson2019}.
 
-The biology of \textit{Ixodidae} make them particularly competent vectors for many diseases. When they feed, they can stay attached for more than one week \cite{Johnson2023b}. Their extended period of feeding means that the transmission of pathogens is more likely to occur \cite{Gray2024}. They lack digestive enzymes, meaning that their midgut is relatively benign, which increases the probability of transstadial transmission. When they feed, they inject saliva into their hosts, which increases the chance of successful transmission \cite{Gray2024}.
+The biology of \textit{Ixodidae} make them particularly competent vectors for many diseases. When they feed, they can stay attached for more than one week \cite{Johnson2023b}. Their extended period of feeding means that there is more time available for the transmission of pathogens \cite{Gray2024}. They lack digestive enzymes, meaning that their midgut is relatively benign, which increases the probability of transstadial transmission. When they feed, they inject saliva into their hosts, which increases the chance of successful transmission \cite{Gray2024}.
 
-Since nidicolous ticks such as \textit{I. trianguliceps} are specialists, then usually they are not directly a threat to humans or livestock. However, some nidicolous ticks will bite any vertebrate that comes into contact with their habitat. Otherwise, many nidicolous tick species could maintain a pathogen among a population of reservoir hosts \cite{gray2014}.
+Since nidicolous ticks such as \textit{I. trianguliceps} are specialists, then usually they are not directly a threat to humans or livestock. Their sheltered lifestyle imposes limitations on their potential as vectors. The main role of nidicolous \textit{Ixodidae} ticks, in their relation to zoonotic diseases, appears to be the maintenance of pathogens in nature \cite{gray2014}.
 
-We can expect to find ticks of different life stages in different frequencies and can expect them to feed on different vertebrate hosts. Given that ticks die during and between their life stages, then larvae are most abundant, nymphs less common, and adults less common still \cite{Randolph1998}. A tick's life stage will allow us to predict how it will feed. For \textit{I. ricinus}, adults tend to feed on larger vertebrate hosts, whereas immature \textit{I. ricinus} ticks will frequently feed on smaller vertebrate hosts \cite{Herrmann2015, Randolph1998}. In comparison, \textit{I. trianguliceps} will feed almost exclusively on small mammal hosts, and is regarded as a specialist \cite{Bown2003, Bown2008}.
+We can expect to find ticks of different life stages in different frequencies. Given that ticks die during and between their life stages, then larvae are most abundant, nymphs less common, and adults less common still \cite{Randolph1998}. A tick's life stage will also allow us to predict how it will feed. For \textit{I. ricinus}, adults tend to feed on larger vertebrate hosts, whereas immature \textit{I. ricinus} ticks will frequently feed on smaller vertebrate hosts \cite{Herrmann2015, Randolph1998}. In comparison, \textit{I. trianguliceps} will feed almost exclusively on small mammal hosts, and is regarded as a specialist \cite{Bown2003, Bown2008}.
 
-Ticks vary in their lifespans and their yearly active periods. \textit{I. trianguliceps} has a lifespan of 2 to 5 years. All life stages seem to be active throughout the year but their activity peaks depending on where they live. In northern England, \textit{I trianguliceps} are most active in mid-autumn, while nymphal activity peaks in mid-summer, and infestations on rodents in the United Kingdom peak in summer and autumn. \textit{I. ricinus} is also active in northern England. Their life cycle typically lasts between 2 and 3 years. \textit{I. ricinus} larvae activity frequently peaks in early summer while nymphal activity peaks in spring and autumn.
+Ticks vary in their lifespans and their yearly active periods. \textit{I. trianguliceps} has a lifespan of 2 to 5 years. All life stages seem to be active throughout the year but their activity peaks depending on where they live. In northern England, \textit{I trianguliceps} are most active in mid-autumn, while nymphal activity peaks in mid-summer, and infestations on rodents in the United Kingdom peak in summer and autumn \cite{Pf_ffle_2017}. \textit{I. ricinus} is also active in northern England. Their life cycle typically lasts between 2 and 3 years. \textit{I. ricinus} larvae activity frequently peaks in early summer while nymphal activity peaks in spring and autumn \cite{Otranto_2017}.
 
 \subsection{Tick-borne diseases}
 
 Ticks harbour pathogens (viruses, bacteria and protozoa) that spread to vertebrate hosts when they take blood meals from those hosts. Those pathogens can cause diseases and many of those have severe health implications for vertebrate hosts, including humans \cite{Johnson2023e}.
 
-\textit{I. ricinus} is the most important vector in central and western Europe, and is a vector for at least 20 pathogens, and at least eight pathogens that can affect humans, including Lyme disease and tick-borne encephalitis (TBE) \cite{Gray2024}. Pathogens transmitted by ticks are responsible for the majority of vector-borne disease in temperate North America, Europe and Asia, with Lyme Disease being the most prevalent tick-borne disease in the Northern Hemisphere \cite{Rochlin2020}. 
+\textit{I. ricinus} is the most important vector in central and western Europe; it is a vector for at least 20 pathogens, and at least eight pathogens that can affect humans, including Lyme disease and tick-borne encephalitis (TBE) \cite{Gray2024}. Pathogens transmitted by ticks are responsible for the majority of vector-borne disease in temperate North America, Europe and Asia, with Lyme Disease being the most prevalent tick-borne disease in the Northern Hemisphere \cite{Rochlin2020}. 
 
-While the impact on human health is significant, so is the impact on the livestock industry. A recent paper estimated the cumulative impact on livestock due to TBD in India's dairy industry was \$787.63 million USD \cite{Singh2022}. A 2006 article reported that economic losses in Tanzania's cattle industry were estimated to be \$364 million USD \cite{Kivaria2006}.
+While the impact on human health is significant, so is the impact on the livestock industry. Research estimated the cumulative impact on livestock due to TBD in India's dairy industry was \$787.63 million USD \cite{Singh2022}. A 2006 article reported that economic losses in Tanzania's cattle industry were estimated to be \$364 million USD \cite{Kivaria2006}.
 
 The geographical ranges of \textit{I. ricinus} and \textit{I. trianguliceps} often overlap. \textit{I. ricinus} has been reported in all parts of Europe, including Iceland, and throughout Northern Africa \cite{Otranto_2017}. \textit{I. trianguliceps} has been reported across mainland Europe and in the British Isles \cite{Pf_ffle_2017}. This thesis includes data from a single forest where \textit{I. ricinus} and \textit{I. trianguliceps} were collected from small mammals trapped during a longitudinal field study \cite{Bown2008, Bown2011}.
 
@@ -189,17 +187,17 @@ There are three ways that a pathogen can spread through populations of ticks, as
 	\item Ticks may become infected by co-feeding, spatially or temporally, alongside infected ticks; this does not require the host to have a systemic infection but instead pathogens are passed from one tick to another as they feed together. This is referred to as co-feeding transmission \cite{HARRISON2012}.
 \end{itemize}
 
-In addition, for a tick-borne pathogen to survive in nature, it is necessary for ticks to transmit the pathogens onwards. However, that is not sufficient for the pathogen's survival. For a tick to become infected and then survive the moulting process to then pass on the disease, the pathogen must survive transstadially; transstadial transmission is the maintenance of the pathogen between life stages \cite{Johnson2023d}. This is a feature of systemic, vertical and co-feeding transmission.
+In addition, for a tick-borne pathogen to survive in nature, it is necessary for ticks to transmit the pathogens onwards. However, that is not sufficient for the pathogen's survival. For a tick to become infected and then survive the moulting process to then pass on the disease, the pathogen first must survive transstadially; transstadial transmission is the tick's maintenance of the pathogen between life stages \cite{Johnson2023d}. This is a feature of systemic, vertical and co-feeding transmission.
 
-The importance of different transmission routes depends on the tick and host species. Co-feeding transmission is important in disease systems where vertebrate hosts are incompetent vectors for maintaining a pathogen \cite{HARRISON2012}. Several studies suggest that co-feeding transmission is required for TBE to persist in nature \cite{Hartemink2008, HARRISON2012}, but it is less important for the persistence of Lyme disease. Several studies on TBD show that co-feeding transmission will increase $ R_0 $, which is defined later in this introduction \cite{JohnstoneRobertson2020, Rosa2003, Norman2004}. Some studies show that co-feeding transmission may allow a pathogen to persist even without systemic transmission \cite{Rosa2003, Norman2004}. The focus of this thesis is on such a scenario.
+The importance of different transmission routes depends on the tick and host species. Co-feeding transmission is important in TBD systems where vertebrate hosts are incompetent vectors for maintaining a pathogen \cite{HARRISON2012}. Several studies suggest that co-feeding transmission is required for TBE to persist in nature \cite{Hartemink2008, HARRISON2012}, but it is less important for the persistence of Lyme disease. Several studies on TBD show that co-feeding transmission will increase $ R_0 $, which is defined later in this introduction \cite{JohnstoneRobertson2020, Rosa2003, Norman2004}. Some studies show that co-feeding transmission may allow a pathogen to persist even without systemic transmission \cite{Rosa2003, Norman2004}. The focus of this thesis is on such a scenario.
 
-If an \textit{Ixodidae} larva becomes infected during a blood meal (either via systemic or co-feeding transmission), then it transmitting the pathogen is not guaranteed. It must first survive the moulting process to become a nymph. It must then find another vertebrate host to feed upon. If the pathogen survives transstadially, then further transmission is possible. For the species \textit{I. ricinus}, commonly called a deer tick or sheep tick, the larva-to-nymph moulting success rate was reported at 91.9\% under some laboratory conditions \cite{Hurry2021}. Research from 2016 suggested that larvae-to-nymph moulting success of \textit{I. ricinus} was dependent on environmental conditions, with evidence to suggest that snow cover would act as a temperature buffer during Germany's winter \cite{Dautel2016}. For the species \textit{I. trianguliceps}, mortality from larvae to nymph is density-dependent \cite{Randolph1994}.
+If an \textit{Ixodidae} larva becomes infected during a blood meal (either via systemic or co-feeding transmission), then it becoming infectious is not guaranteed. It must first survive the moulting process to become a nymph. It must then find another vertebrate host to feed upon. If the pathogen survives transstadially, then further transmission is possible. For the species \textit{I. ricinus}, commonly called a deer tick or sheep tick, the larva-to-nymph moulting success rate was reported at 91.9\% under some laboratory conditions \cite{Hurry2021}. Research from 2016 suggested that larvae-to-nymph moulting success of \textit{I. ricinus} was dependent on environmental conditions, with evidence to suggest that snow cover would act as a temperature buffer during Germany's winter \cite{Dautel2016}. For the species \textit{I. trianguliceps}, mortality from larvae to nymph is density-dependent \cite{Randolph1994}.
 
 \subsection{The definition and importance of \texorpdfstring{$ R_0 $}{R0}}
 
-The most important and widely-used concept in modelling transmissible diseases is the basic reproduction number $ R_0 $. This is a frequently-cited concept across epidemiology, and can be defined as the mean number of new infections per infection in an entirely susceptible population \cite{Diekman2000}. \textbf{It differs from the effective reproductive number $ R_t $}, which is used to quantify the efficacy of control measures in real time \cite{Lim2020}. Taken together, research sometimes uses the term $ R $ to indicate the reproductive number at different stages of an outbreak \cite{Jewell2022}.
+The most important and widely-used concept in modelling transmissible diseases is the basic reproduction number $ R_0 $. This is a frequently-cited concept across epidemiology, and can be defined as the mean number of new infections per infection in an entirely susceptible population \cite{Diekman2000}.It differs from the effective reproductive number $ R_t $, which is used to quantify the efficacy of control measures in real time \cite{Lim2020}.
 
-A disadvantage of using $ R_0 $, which is a notion of generational growth, is that it does not describe growth in real time. During the early stages of an outbreak in a susceptible population, we can understand growth as being exponential:
+A consequence of using $ R_0 $, which is a notion of generational growth, is that it does not describe growth in real time. During the early stages of an outbreak in a susceptible population, we can understand growth as being exponential:
 
 \begin{equation}
 	I(t) \approx Ce^{rt}
@@ -216,35 +214,27 @@ $ R_0 $ is not a rate and is dimensionless, however, it has a relationship with 
 
 In other words, the outbreak will undergo exponential decay when $ R_0 < 1 $, but an outbreak can be expected to persist when $ R_0 > 1 $. An important nuance is that $ R_0 > 1 $ is a necessary but insufficient condition for an outbreak to persist; due to stochasticity, the disease may still become extinct, even if $ R_0 > 1 $. This thesis will concentrate on $ R_0 $, rather than $ R_t $, because we assume that populations of ticks are entirely susceptible when a single infected tick is introduced.
 
-Determining $ R_0 $ for wildlife disease systems often involve added complexities. Individual host species and individuals themselves have different susceptibilities, infectivity, and contacts. Given that an individual tick has different life stages, then these differences can exist within an individual throughout its life. Adding to the complexity is multiple transmission routes for many disease systems \cite{Hartemink2008}. Structured population models allow for modelling these complexities \cite{Diekman2000}. However, this thesis investigates the particular case where only co-feeding transmission is possible. Therefore, $ R_0 $ in this thesis is simply the average number of new infections per infection. Finding $ R_0 $ in previous research has involved using contact trace data \cite{LloydSmith2005}, and this thesis introduces a method to simulate such data based on tick aggregation data.
+Determining $ R_0 $ for wildlife disease systems often involve added complexities. Individual host species and individuals themselves have different susceptibilities, infectivity, and contacts. Given that an individual tick has different life stages, then these differences can exist within an individual throughout its life. Adding to the complexity is multiple transmission routes for many disease systems \cite{Hartemink2008}. Structured population models allow for modelling these complexities \cite{Diekman2000}. However, this thesis investigates the particular case where only co-feeding transmission is possible. Therefore, $ R_0 $ in this thesis is simply the average number of new infections per infection. Finding $ R_0 $ in previous research has involved using contact trace data \cite{LloydSmith2005}, and this thesis introduces a method to simulate such data based on tick co-aggregation data.
 
 \subsection{Heterogeneity in disease networks}
 
 The extent to which individuals infected with transmissible diseases are able to infect their peers varies by multiple factors, including the specific disease, host population and environmental factors \cite{LloydSmith2005}. In transmissible disease systems, heterogeneity in individual behaviour can mean that some of the infected will not transmit the disease at all, while some might infect many of their peers.
 
-An important notion to describe heterogeneity in disease systems is that of superspreading. Superspreading events are situations in which a few individuals are disproportionately responsible for infecting many others \cite{Galvani_2005}, which is often the case with infections like gonohrea and HIV/AIDS. The individuals who transmit the disease in these situations are superspreaders. Important research in 2005 made the case that superspreading events are normal events in the spread of infectious diseases \cite{LloydSmith2005}, and their work included a method to predict the frequency of superspreading events. Prior to 2005, there was already evidence of superspreading in disease networks. Data from the early-2000s SARS epidemic in Singapore showed that five individuals were identified as superspreaders after infecting another 103 individuals \cite{CDC2003}.
+An important notion to describe heterogeneity in disease systems is that of superspreading. Superspreading events are situations in which a few individuals are disproportionately responsible for infecting many others \cite{Galvani_2005}, which is often the case with infections like gonohrea and HIV/AIDS. The individuals who transmit the disease in these situations are superspreaders. Important research in 2005 made the case that superspreading events are normal events in the spread of infectious diseases \cite{LloydSmith2005}, and that work included a method to predict the frequency of superspreading events. Prior to 2005, there was already evidence of superspreading in disease networks. Data from the early-2000s SARS epidemic in Singapore showed that five individuals were identified as superspreaders after infecting another 103 individuals \cite{CDC2003}.
 
-To address the heterogeneity in the ... TALK ABOUT THE INDIVIDUAL REPRODUCTIVE NUMBER. 
+Superspreading is not just a feature of pathogens transmitted between humans; pathogens transmitted between other animals can exhibit the same behaviour, and there are multiple ways for superspreading to occur within those transmission networks. While it is true that some infected individuals will come into contact with more of their peers, and are in a sense superspreaders, it is also true that some individuals have a higher infectiousness and are "supersheaders" \cite{VanderWaal_2016}. This implies we can expect many reasons for TBD transmission networks to feature heterogeneity.
 
-Superspreading is not just a feature of pathogens transmitted between humans; pathogens transmitted between other animals can exhibit the same behaviour, and there are multiple ways for superspreading to occur within those transmission networks. While it is true that some infected individuals will come into contact with more of their peers, and are in a sense superspreaders, it is also true that some individuals have a higher infectiousness and are "supersheaders" \cite{VanderWaal_2016}. This implies we can expect many reasons to find TBD transmission networks that feature heterogeneity. 
+For an individual tick to infect many others, a necessary but insufficient condition is aggregation. To understand the heterogeneity in tick aggregation, the 80:20 rule is often cited. This is where 80\% of cases are caused by 20\% of infected individuals. Many vector-borne and sexually-transmitted diseases follow the 80:20 rule \cite{Woolhouse1997}. This heterogeneity is also present in TBD systems; there is significant evidence to suggest that aggregation data follows the 80:20 rule \cite{Ferreri2014, Brunner2008, JohnstoneRobertson2020}.
 
-For an individual tick to infect many others, a necessary but insufficient condition is aggregation. To understand the heterogeneity in tick aggregation, the 80:20 rule is often cited. This is where 80\% of cases are caused by 20\% of infected individuals. Many vector-borne and sexually-transmitted diseases follow the 80:20 rule \cite{Woolhouse1997}. This heterogeneity is also present in TBD systems; there is significant evidence to suggest that aggregation data follows the 80:20 rule \cite{Ferreri2014, Brunner2008, JohnstoneRobertson2020}. When larvae and nymphs aggregate on the same vertebrate hosts, they are said to co-aggregate. 
+An interesting result in 2003 showed that when co-feeding ticks were considered, the transmission potential of the most-infested vertebrate hosts was even larger. Perkins et al used Lorenz curves to quantify the heterogeneity in transmission potentials by ranking the most-tick infested vertebrate hosts. They found that 20\% of vertebrate hosts were responsible for 74\% of transmission potential, but that approximation jumps to 94\% when only co-feeding ticks were considered \cite{Perkins_2003}. This project will also use Lorenz curves to quantify transmission potential for co-feeding, but will use a different calculation.
 
-An interesting result in 2003 showed that when co-feeding ticks were considered, the transmission potential of the most-infested vertebrate hosts was even larger. Transmission potential was calculated as:
-
-\begin{equation} \label{PerkinsR0Estimate}
-	R_0 \propto \sum_i^m v_i^2 h_i
-\end{equation}
-
-where $ m $ is the number of vertebrates, $ v_i $ is the proportion of all ticks found on vertebrate $ i $, and $ h_i $ is the proportion of vertebrates. With this, Perkins et al used Lorenz curves to quantify the heterogeneity in transmission potential. They found that 20\% of vertebrate hosts were responsible for 74\% of transmission potential, but that approximation jumps to 94\% when only co-feeding ticks were considered \cite{Perkins_2003}.
-
-The heterogeneity that is present in many transmission networks affects the choice of models we may choose to employ. Classically, models of disease outbreaks have assumed homogeneity in individual infectiousness and behaviour \cite{Garske2008}. These have typically been compartment models; the Susceptible-Infectious-Recovered systems of ordinary differential equations are common, although they can take many forms with more compartments defined. An assumption of those models is that the compartments are each large enough that the behaviour of individuals in those compartments is homogeneous. This is an appropriate assumption once an outbreak is established. However, at the start of an outbreak, the number of infectious individuals must be small. This exposes a limitation: compartment models that lack a stochastic element are insufficient to describe the very early stages of an outbreak \cite{Brauer2008a}. One approach is to use the SIR modelling framework to define stochastic differential equations \cite{Allen2017}, but there are other stochastic methods available. Also in any population, the degree infectiousness is distributed continuously, which further impedes our ability to divide a population into homogeneous subgroups \cite{LloydSmith2005}. This thesis addresses the heterogeneity that occurs in TBD systems by using a branching process simulation, which is defined in a later section.
+The heterogeneity that is present in many transmission networks affects the choice of models we may choose to employ. Classically, models of disease outbreaks have assumed homogeneity in individual infectiousness and behaviour \cite{Garske2008}. These have typically been compartment models; the Susceptible-Infectious-Recovered systems of ordinary differential equations are common, although they can take many forms with more compartments defined. An assumption of those models is that the compartments are each large enough that the behaviour of individuals in those compartments is homogeneous. That is an appropriate assumption once an outbreak is established. However, at the start of an outbreak the number of infectious individuals must be small. This exposes a limitation: compartment models that lack a stochastic element are insufficient to describe the very early stages of an outbreak \cite{Brauer2008a}. Also in any population, the degree infectiousness is distributed continuously, which further impedes our ability to divide a population into homogeneous subgroups \cite{LloydSmith2005}. One approach is to use the SIR modelling framework to define stochastic differential equations \cite{Allen2017}, but there are other stochastic methods available. This thesis addresses the heterogeneity that occurs in TBD systems by using a branching process simulation, which is defined in a later section of this introduction.
 
 \subsection{Using the negative binomial distribution}
 
 The work of Lloyd-Smith and others in 2005 showed that the negative binomial distribution was a better fit than either the Poisson or geometric distributions to many contact trace and surveillance datasets \cite{LloydSmith2005}; this is an important result that this thesis will reproduce. While the negative binomial distribution is frequently presented in textbooks with an integer parameter, Lloyd-Smith et al used a reparameterisation that allows for two continuous parameters: sample mean $ m $ and dispersion parameter, although that was a known result $ k $ \cite{Rice2007}. For a contact trace dataset, the sample mean is $ R_0 $. Lloyd-Smith et al showed that $ R_0 $ can be low and a pathogen may still spread if the over-dispersion parameter $ k $ is low enough, since a low $ k $ indicates heterogeneity in the data, meaning there exist superspreading events that allow a transmissible pathogen to spread.
 
-The work by Lloyd-Smith et al showed introduced the notion of an individual reproductive number $ v $, which represents individuals' variation in disease history. They represented this as a Gamma-distributed random variable and used that in a Poisson mixture to derive a negative binomial distribution, as below:
+The work by Lloyd-Smith et al introduced the notion of an individual reproductive number $ v $, which represents individuals' variation in disease history. They represented this as a Gamma-distributed random variable and used that in a Poisson mixture to derive a negative binomial distribution, as below:
 
 \begin{align}\label{PoissonMixture}
 	v &\sim \text{Gamma}\left(R_0, \frac{R_0}{k}\right) \nonumber \\
@@ -258,10 +248,9 @@ The negative binomial distribution is also important in modelling TBD systems. I
 
 \subsection{Thinking about TBD transmission using contact networks}
 
-Contact networks are a frequently-used tool in the analysis of how pathogens spread. Contact networks are graphs where vertices represent individuals and edges between them represent contacts. Those contacts may also facilitate transmission; the edges and nodes of a transmission network is contained within a contact network GET CITATION FOR THIS. In the case of a vector-borne disease, a bipartite graph is useful to represent contacts between vectors and hosts.
+Contact networks are a frequently-used tool in the analysis of how pathogens spread. Contact networks are graphs where vertices represent individuals and edges between them represent contacts. Those contacts may also facilitate transmission; the edges and nodes of a transmission network are contained within a contact network. 
 
-Network thinking can help overcome some of the problems associated with deterministic compartment models; network models allow for representing the heterogeneity that exists in individual behaviour. Superspreaders can feature in these networks as nodes 
-This can lead to more useful outcomes, as some simulations suggest that stochastic methods lead to more accurate estimates for $ R_0 $ when early outbreak data is used \cite{Brauer2008b}.
+Network thinking can help overcome some of the problems associated with deterministic compartment models; network models allow for representing the heterogeneity that exists in individual behaviour, and superspreaders can be represented as nodes with many outgoing edges. Network approaches can lead to useful outcomes, as some simulations suggest that stochastic methods lead to more accurate estimates for $ R_0 $ when early outbreak data is used \cite{Brauer2008b}.
 
 In 2010, Bisanzio et al modelled the potential spread of TBE and Lyme disease. Their analysis focused on co-aggregation data for \textit{I. ricinus}. They made a bipartite contact network to represent the potential for transmission between vectors and hosts. Their analysis, which used bipartite networks to represent contacts between vector and host, showed that extreme aggregation on hosts would greatly impact the epidemic threshold \cite{Bisanzio2010}. In 2016, the work of Ferreri et al followed the work of Bisanzio et al. Their model represented aggregation as star graphs, with vertebrates at the centre and ticks as peripheral nodes. Their analysis focused on co-feeding transmission, but the model did not differentiate between the different life stages of tick.
 
@@ -271,17 +260,21 @@ In 2020, the work of Johnstone-Robertsone et al characterised a tick-host contac
 	R_0 \propto \frac{\langle k_{in}k_{out} \rangle}{\langle k_{in} \rangle } 
 \end{equation}
 
-where $ k_{in} $ is the number of nymphs and $ k_{out} $ is the number of larvae that are found on an individual vertebrate host.
+where $ k_{in} $ is the number of nymphs and $ k_{out} $ is the number of larvae that are found on an individual vertebrate host. This result is also used to quantify the heterogeneity that exists in co-aggregation data.
 
 \subsection{Galton-Watson Branching Processes}
 
-A Galton-Watson Branching Process (GWBP) is a useful device for analysing how a disease spreads, but its original use was concerned with the extinction of families in Victorian Britain \cite{Athreya1972}. Whether a family becomes extinct because each father has no sons to carry on the family name, or a disease outbreak becomes extinct because each infected person infects no one else, are both addressed with the same technique.
+A Galton-Watson Branching Process (GWBP) is a useful device for analysing how a disease spreads, but its original use was concerned with the extinction of families in Victorian Britain \cite{Athreya1972}. Whether a family becomes extinct because each father has no sons to carry on the family name, or a disease outbreak becomes extinct because each infected individual infects no one else, are addressed with the same technique.
 
 A single-type GWBP branching process is such that all offspring, in all generations, belong to the same category; for a TBD, that could mean a specific species, particular life stage or infected by a particular pathogen. GWBP are also discrete-time Markov chains; the number of offspring in generation $ n $ depends on the probability of extinction in generation $ n - 1 $, but not on previous generations \cite{Allen2019}.
 
-A requirement for using any branching process simulation is to define an offspring distribution. This is a discrete random variable that represents the number of new infections per infection (or sons per father, or new cells per cell, etc). Let $ q_k $ be the offspring distribution, such that $ \sum_{k=0}^\infty q_k = 1 $ \cite{Diekman2000}, where $ k $ is the number of offspring. Below is the technique applied to a single-type branching process.
+A requirement for using any branching process simulation is to define an offspring distribution. This is a discrete random variable that represents the number of new infections per infection (or sons per father, or new cells per cell, and so on). Let $ q_k $ be the offspring distribution, such that $ \sum_{k=0}^\infty q_k = 1 $ \cite{Diekman2000}, where $ k $ is the number of offspring.  Note that if $ q_k $ is known, then we can determine $ R_0 $:
 
-Let $ z $ be the probability of extinction, and note that $ g(z) $ is a probability generating function. $ z $ is applied to individuals in the branching process in the sense that for extinction to occur, every individual must have $ 0 $ offspring.
+\begin{equation}\label{offspringR0}
+	R_0 = \sum_{k=1}^\infty k q_k
+\end{equation}
+
+For a single-type GWBP, let $ z $ be the probability of extinction, and note that $ g(z) $ is a probability generating function. $ z $ is applied to individuals in the branching process in the sense that for extinction to occur, every individual must have $ 0 $ offspring.
 
 \begin{equation}\label{BranchingProcessPGF}
     g(z) = \sum_{k=0}^\infty q_k z^k, |z| < 1
@@ -297,45 +290,27 @@ Now, let $ z_n $ be the probability that the chain is extinction after $ n $ gen
 
 and note this has the Markov property, since the probability of extinction for generation $ n $ only relies on generation $ n-1 $.
 
-This indicates $ z_n $ increases monotonically. But since all $ |z_n| \le 1 $, then this series converges. That leads to the simplification $ z = g(z) $. Thanks to the simplification, we find that the function is equal to its independent variable, and that means we can find an approximation for it via fixed point iteration. While that result is useful, we can avoid the calculation when extinction is guaranteed. Since $ R_0 $ is known, then we can use $ R_0 <1 \implies z_{\infty} = 1 $ \cite{Diekman2000}.
+This indicates $ z_n $ increases monotonically. But since all $ |z_n| \le 1 $, then this series converges, which leads to the simplification $ z = g(z) $. Thanks to that simplification, we find that the function is equal to its independent variable, and that means we can find an approximation for it via fixed point iteration. While that result is useful, we can avoid the calculation when extinction is guaranteed.: since $ R_0 $ is known \eqref{offspringR0}, then we can use $ R_0 \le 1 \implies z_{\infty} = 1 $ \cite{Diekman2000}.
 
 The single-type branching process defined above is useful when offspring are the same type as their parent \cite{Allen2019}. However, many disease systems can be modelled using a multi-type branching process, which are capable of representing more complex systems that have more than just one pathogen, multiple species of host, and ticks in multiple different life-stages.
 
 Multi-type GWBP simulations have been used to model TBD previously, which have effectively addressed the small number of infected individuals that limits the use of deterministic compartment models. In one article on TBD, authors compared predictions made using a deterministic compartment model and a multi-type GWBP to represent systemic transmission between hosts and vectors. They found the deterministic model would predict a stable endemic equilibrium if $ R_0 > 1 $, whereas the stochastic models would sometimes still lead to disease extinction even if $ R_0 > 1 $ \cite{Maliyoni_2017}. 
 
-This project assumes that ticks are not competent vectors for the same pathogens, and that different vertebrate hosts have different behaviours, but infected nymphs beget infected nymphs during co-feeding transmission, so therefore a single-type branching process is appropriate.
+In this thesis, we model transmission as infectious nymphs beget new infectious nymphs during co-feeding. Furthermore, this project assumes that the tick species are not competent vectors for the same pathogens and that the vertebrate hosts have different behaviours. We also note different larval and nymphal activity for both tick species varies by year. So, we use a single-type GWBP for each combination of tick species, host species and year.
 
 \newpage
 
 \section{Research project}
 
-\subsection{Aims}
+This thesis aims to predict the probability of extinction within a TBD network in a scenario where a single infectious nymph, a population of susceptible larvae, and a population of vertebrate hosts share a single habitat. To determine this probability, we find an offspring distribution and use a single-type GWBP, similar to the work by Lloyd-Smith et al \cite{LloydSmith2005}. However, where Lloyd-Smith et al used contact trace datasets for transmissions between people, we use field data that reports the larval and nymphal burdens (co-agggregation data) of vertebrate hosts that were collected in a survey at the Kielder Forest, in the United Kingdom, between 2004-2005 \cite{Bown2008, Bown2011}.
 
-\begin{itemize}
-  \item Implement a technique, which we believe is novel, to generate an offspring distribution by using tick burden data, which field ecologists commonly-collect. An offspring distribution is required to use a GWBP simulation.
-  \item Publish and document the use of a new method for use by TBD researchers, who may wish to calculate the probability that a TBD goes extinct, where co-feeding is the only viable transmission route.
-  \item Find estimates for parameters to be used as a threshold; passing the threshold would be necessary, but not sufficient, for a tick-borne pathogen to persist in nature via co-feeding transmission alone. Parameters below the threshold would necessarily cause extinction.
-\end{itemize}
+We introduce a novel technique to measure and compare the heterogeneity in vertebrates' ranked transmission potentials for facilitating co-feeding, without first having to obtain an estimate for $ R_0 $. This uses Lorenz curves and is inspired by the work of Perkins et al \cite{Perkins_2003} and Johnstone-Robertson et al \cite{JohnstoneRobertson2020}.
 
-\subsection{Methods}
+This thesis introduces what we believe is a novel method to obtain the parameters $ R_0 $ and $ k $ needed for an offspring distribution directly from the empirical co-aggregation data. In this project, we are unable to precisely determine $ R_0 $ for each subset of Kielder Forest data, so we report a range of possible probabilities of extinction. However, it might be feasible for other researchers to obtain accurate estimates for some particular combination of tick species, host species and environmental conditions. We report threshold values that would allow $ R_0 > 1 $ for each subset of data.
 
-\begin{enumerate}
-  \item Analyse and summarise provided tick co-aggregation datasets. 
-  \item Reproduce results from an important paper that simulates extinctions of directly-transmitted disease chains. Then, apply these extinction simulations to simulated TBD networks, where co-feeding transmission is a form of direct transmission.
-  \item Implement a parameterisation of the Negative Binomial distribution that uses that simulated offspring distribution’s sample mean as a shape parameter. This is currently not supported in Python’s SciPy. This will be one candidate Offspring Distribution.
-  \item Use the co-aggregation data to derive offspring distributions, which is required for the GWBP analysis, for each species of tick to determine the probability that a chain of transmissions becomes extinct.
-  \item Fit the reparameterised negative binomial, geometric and Poisson distributions to each subset of data, as candidates for offspring distributions. Use a goodness of fit method to check which distribution best-fits each subset of data.
-  \item Once we have a candidate offspring distribution for each tick species, use the theory of branching processes to find the probability of pathogen extinction based on given starting parameters.
-  \item Ensure all code is documented, easy to read and usable for future researchers. Ensure code is published online for others to use.
-\end{enumerate}
+To assist with understanding the probability of extinction with a TBD network, we re-implement many of the results by Lloyd-Smith et al. To find the parameters $ R0 $ and $ k $, this project uses a reparameterised negative binomial distribution. We compare the goodness-of-fit for that distribution to the other distributions, and find that the negative binomial is either the best fit or close to the best in each case, which matches the findings of Lloyd-Smith et al. To help put many results in context, we re-implement and modify some simulations and visualisations made by Lloyd-Smith et al. 
 
-\subsection{Expected outcomes}
-
-\begin{itemize}
-  \item The negative binomial distribution will be a better fit for simulated offspring data, when compared with Poisson and geometric distributions.
-  \item Some combinations of parameters will allow for $ R_0 > 1 $, indicating that co-feeding transmission might be sufficient to maintain some combinations of: pathogen, tick, and vertebrate host species, in different environmental conditions.
-  \item A single-type GWBP may be too simple, and there will be a cause to recommend a multi-type GWBP simulation in future research. We can expect this to feature in the discussion section of this thesis.
-\end{itemize}
+To help more people use the results of this research, a link to all code used to generate the analysis and figures is provided in the Appendix. The code is as useful and easy-to-read as we had time to make it. In the Discussion we address as many assumptions as possible, alternative assumptions, and the consequences of using those assumptions.
 
 \newpage
 
@@ -347,7 +322,7 @@ The analysis by Bown et al originally **INSERT DETAILS ABOUT WHY THEY COLLECTED 
 
 The data includes only the tick species \textit{I. trianguliceps} and  \textit{I. ricinus}. The host species were mostly "field voles", (\textit{Microtus agrestis}), and "common shrews" (\textit{Sorex araneus}). The researchers also encountered small numbers of other small mammals. The common shrew and field voles vastly outnumber other vertebrate hosts in the Kielder Forest data. The use of that data in this project focuses on the common shrew and field vole observations. 
 
-\subsection{Evidence of co-aggregation}
+\subsection{Evidence of co-aggregation} \label{subsection_evidenceOfCoaggregation}
 
 Of interest is whether larvae and nymphs of a particular tick species have the same seasonal variation in activity. If the larvae and nymphs are active at different times, then the opportunity for co-feeding transmission to occur is limited. Seasonal activity for nymphs and larvae, for \textit{I. ricinus} and \textit{I. trianguliceps}, collected at the Kielder Forest is presented in Figure \ref{fig:kielder_seasonal}.
 
@@ -361,7 +336,7 @@ Of interest is whether larvae and nymphs of a particular tick species have the s
 	\label{fig:kielder_seasonal}
 \end{figure}
 
-Overall counts of larval and nymphal burdens for both species of tick, and for the common shrew and field vole host species, are presented in table \ref{tab:counts_kielder_overall}.
+Overall counts of larval and nymphal burdens for both species of tick, and for the common shrew and field vole host species, are presented in Table \ref{tab:counts_kielder_overall}.
 
 \begin{table}[h!]
 	\centering
@@ -379,7 +354,7 @@ Overall counts of larval and nymphal burdens for both species of tick, and for t
 	\label{tab:counts_kielder_overall}
 \end{table}
 
-This project makes the assumption that co-feeding is the only viable route of transmission, and that co-feeding transmission is passed from infectious nymph to larvae that are in close proximity. Furthermore, if we assume \textit{I. ricinus} and \textit{I. trianguliceps} carry pathogens for which the other tick species is not susceptible, then we can refine the data to include only the larvae that co-aggregate with nymphs of the same species, as in table \ref{tab:counts_kielder_with_same_species_nymphs}. This means that larvae found on vertebrates without a nymphal burden of the same species were excluded.
+This project makes the assumption that co-feeding is the only viable route of transmission, and that co-feeding transmission is passed from infectious nymph to larvae that are in close proximity. Furthermore, if we assume \textit{I. ricinus} and \textit{I. trianguliceps} carry pathogens for which the other tick species is not susceptible, then we can refine the data to include only the larvae that co-aggregate with nymphs of the same species, as in Table \ref{tab:counts_kielder_with_same_species_nymphs}. This means that larvae found on vertebrates without a nymphal burden of the same species were excluded.
 
 %\begin{table}[h!]
 %	\centering
@@ -410,7 +385,7 @@ This project makes the assumption that co-feeding is the only viable route of tr
 		\multicolumn{1}{|l|}{\multirow{2}{*}{2005}} & \multicolumn{1}{l|}{Common shrew} & \multicolumn{1}{r|}{0}      & \multicolumn{1}{r|}{0}      & \multicolumn{1}{r|}{179}    & 79                          \\ \cline{2-6} 
 		\multicolumn{1}{|l|}{}                      & \multicolumn{1}{l|}{Field vole}   & \multicolumn{1}{r|}{190}    & \multicolumn{1}{r|}{24}     & \multicolumn{1}{r|}{9}      & 78                          \\ \hline
 	\end{tabular}
-	\caption{Counts of nymphs and larvae on vertebrates, but larvae were found to co-aggregate with one or more nymphs of the same species.}
+	\caption{Counts of nymphs and counts of larvae that co-feed with nymphs of the same species.}
 	\label{tab:counts_kielder_with_same_species_nymphs}
 \end{table}
 
@@ -452,7 +427,7 @@ We used the SciPy package in Python to perform the test. We found weak evidence 
 
 Assuming confidence of $ 0.95 $, then the pvalue $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of co-aggregation. Not finding evidence of correlation should not prevent us from doing the analysis.
 
-\subsection{Tick burden heterogeneity}
+\subsection{Tick burden heterogeneity} \label{subsection_tickBurdenHeterogeneity}
 
 Some vertebrate hosts attract many more ticks than others, and measuring that heterogeneity has been addressed or estimated in many studies \cite{}. Of particular interest is research from Perkins et al in 2003 \cite{Perkins_2003}, which quantified heterogeneity in transmission potential for co-feeding transmission by plotting Lorenz curves, and then calculating a Gini coefficient to describe the overall heterogeneity. This project will also use Lorenz curves and Gini coefficients to quantify heterogeneity. However, this paper will compare the Perkins approach to finding Lorenz curves with another approach that uses a modified version of the formula provided by Johnstone-Robertson et al \eqref{JohnstoneRobertsonR0Estimate}. 
 
@@ -470,81 +445,81 @@ So, let:
 
 The modified version of \eqref{JohnstoneRobertsonR0Estimate} is now:
  
-\begin{align}
+\begin{align} 
 	R_0 \propto \frac{\langle b_n b_l \rangle}{\langle b_l \rangle} &= \frac{(1/m)\sum_{a=1}^m (b_n b_l)_a}{(1/m)\sum_{a=1}^m (b_n)_a} \nonumber \\ 
 																	&= \frac{\sum_{a=1}^m (b_n b_l )_a}{\sum_{a=1}^m (b_n)_a} \nonumber \\ 
-																	&= \frac{(b_n b_l)_1}{\sum_{a=1}^m (b_n)_a} + \frac{(b_n b_l)_2}{\sum_{a=1}^m (b_n)_a} + ... + \frac{(b_n b_l)_m}{\sum_{a=1}^m (b_n)_a}
+																	&= \frac{(b_n b_l)_1}{\sum_{a=1}^m (b_n)_a} + \frac{(b_n b_l)_2}{\sum_{a=1}^m (b_n)_a} + ... + \frac{(b_n b_l)_m}{\sum_{a=1}^m (b_n)_a} \label{JohnstoneRobertsonR0Cumulative}
 \end{align}
 
-Then, to obtain a result that is similar to that of Perkins et al, we can order the vertebrates by the product $ b_n b_l $ in descending order, with $ a=1 $ denoting the vertebrate with the largest relative transmission potential. Then, we remove the vertebrates that have the most transmission potentials. The cumulative effect of removing subsequently larger whole number percentages of vertebrate hosts is show in figures . In those figures, to determine the relative effect of removing the vertebrates that have the largest transmission potential, we plot the Perkins formula next to the modified version of the Johnstone-Robertson formula. The shape of the Lorenz curve is useful as a visual aide for understanding the inequality in transmission potentials. 
+Then, to obtain a result that is similar to that of Perkins et al, we can order the vertebrates by the product $ b_n b_l $ in descending order, with $ a=1 $ denoting the vertebrate with the largest relative transmission potential. Then, we remove the vertebrates that have the most transmission potentials, following the example set by Perkins et al. The cumulative effect of removing subsequently larger whole-number percentages of vertebrate hosts is show in Figures \ref{fig:lorenz_2004_iricinus_SA}, \ref{fig:lorenz_2004_itrianguliceps_SA}, \ref{fig:lorenz_2005_itrianguliceps_SA}, \ref{fig:lorenz_2005_iricinus_FV}, \ref{fig:lorenz_2005_itrianguliceps_FV}. In those figures, the cumulative totals for tick aggregation (total numbers of ticks) are plotted next to the cumulative transmission potential of calculated by using \eqref{JohnstoneRobertsonR0Cumulative}. Each curve is found by removing subsequently larger proportions of the vertebrate host populations. The shape of each Lorenz curve is useful as a visual aide for understanding the inequality in transmission potentials, but we use these to calculate GINI coefficients, which are reported in Table \ref{tab:kielderGINI}.
 
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{ll}
-		\includegraphics[width=.48\linewidth,valign=m]{lorenz_perkins_SA_2004_I.Ricinus} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_SA_2004_I.Ricinus} \\
+		\includegraphics[width=.48\linewidth,valign=m]{lorenz_aggregation_SA_2004_I.Ricinus} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_SA_2004_I.Ricinus} \\
 	\end{tabular}
-	\caption{Cumulative transmission potential of \textit{common shrews} that were found with \textit{I.  ricinus} in \textit{2004} in the Kielder Forest data.}
-	\label{fig:lorenz_2004_itrianguliceps_FV}
+	\caption{Aggregation (left) and cumulative transmission potential (right) of \textit{common shrews} that were found with \textit{I.  ricinus} in \textit{2004} in the Kielder Forest data.}
+	\label{fig:lorenz_2004_iricinus_SA}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{ll}
-		\includegraphics[width=.48\linewidth,valign=m]{lorenz_perkins_SA_2004_I.Trianguliceps} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_SA_2004_I.Trianguliceps} \\
+		\includegraphics[width=.48\linewidth,valign=m]{lorenz_aggregation_SA_2004_I.Trianguliceps} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_SA_2004_I.Trianguliceps} \\
 	\end{tabular}
-	\caption{Cumulative transmission potential of \textit{common shrews} that were found with \textit{I. trianguliceps} in \textit{2004} in the Kielder Forest data.}
-	\label{fig:lorenz_2005_iricinus_SA}
+	\caption{Aggregation (left) and cumulative transmission potential (right) of \textit{common shrews} that were found with \textit{I. trianguliceps} in \textit{2004} in the Kielder Forest data.}
+	\label{fig:lorenz_2004_itrianguliceps_SA}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{ll}
-		\includegraphics[width=.48\linewidth,valign=m]{lorenz_perkins_SA_2005_I.Trianguliceps} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_SA_2005_I.Trianguliceps} \\
+		\includegraphics[width=.48\linewidth,valign=m]{lorenz_aggregation_SA_2005_I.Trianguliceps} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_SA_2005_I.Trianguliceps} \\
 	\end{tabular}
-	\caption{Cumulative transmission potential of \textit{common shrews} that were found with \textit{I. trianguliceps} in \textit{2005} in the Kielder Forest data.}
+	\caption{Aggregation (left) and cumulative transmission potential (right) of \textit{common shrews} that were found with \textit{I. trianguliceps} in \textit{2005} in the Kielder Forest data.}
 	\label{fig:lorenz_2005_itrianguliceps_SA}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{ll}
-		\includegraphics[width=.48\linewidth,valign=m]{lorenz_perkins_FV_2005_I.Ricinus} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_FV_2005_I.Ricinus} \\
+		\includegraphics[width=.48\linewidth,valign=m]{lorenz_aggregation_FV_2005_I.Ricinus} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_FV_2005_I.Ricinus} \\
 	\end{tabular}
-	\caption{Cumulative transmission potential of \textit{field voles} that were found with \textit{I. ricinus} in \textit{2005} in the Kielder Forest data.}
+	\caption{Aggregation (left) and cumulative transmission potential (right) of \textit{field voles} that were found with \textit{I. ricinus} in \textit{2005} in the Kielder Forest data.}
 	\label{fig:lorenz_2005_iricinus_FV}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{ll}
-		\includegraphics[width=.48\linewidth,valign=m]{lorenz_perkins_FV_2005_I.Trianguliceps} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_FV_2005_I.Trianguliceps} \\
+		\includegraphics[width=.48\linewidth,valign=m]{lorenz_aggregation_FV_2005_I.Trianguliceps} & \includegraphics[width=.48\linewidth,valign=m]{lorenz_JR_FV_2005_I.Trianguliceps} \\
 	\end{tabular}
-	\caption{Cumulative transmission potential of \textit{field voles} that were found with \textit{I. trianguliceps} in \textit{2005} in the Kielder Forest data.}
+	\caption{Aggregation (left) and cumulative transmission potential (right) of \textit{field voles} that were found with \textit{I. trianguliceps} in \textit{2005} in the Kielder Forest data.}
 	\label{fig:lorenz_2005_itrianguliceps_FV}
 \end{figure}
 
-To calculate the GINI coefficient for each subset of data, we calculate the area between the Lorenz curve and the identity function. Since the identity function represents an idealised homogeneous population, the GINI coefficient summarises the total amount of inequality in transmission potentials. For all subsets of data analysed, the GINI coefficient obtained using the modified version of the Johnston-Robertson formula \eqref{JohnstoneRobertsonR0Estimate} indicates greater heterogeneity than the Perkins formula. 
+To find the GINI coefficient for each subset of data, we calculate the area between each Lorenz curve and the identity function. Since the identity function represents an idealised homogeneous population, the GINI coefficient summarises the total amount of inequality. For all subsets of data analysed, the GINI coefficient for the curve obtained by using \eqref{JohnstoneRobertsonR0Cumulative} indicates greater heterogeneity than that of the Lorenz curve that just describes tick aggregation. Figures \ref{fig:lorenz_2005_iricinus_FV} and \ref{fig:lorenz_2005_itrianguliceps_FV} show that just 1\% of vertebrate hosts were responsible for all transmission potential of field voles in 2005, for both \textit{I.ricinus} and \textit{I.trianguliceps}.
 
 \begin{table}[]
-	\begin{tabular}{|l|l|l|ll|l|}
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
 		\hline
-		\multirow{2}{*}{\textbf{Tick species}} & \multirow{2}{*}{\textbf{Host species}} & \multirow{2}{*}{\textbf{Year}} & \multicolumn{2}{c|}{\textbf{Perkins et al, 2003}}                                        & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Johnstone\\-Robertson\\ et al 2020\end{tabular}}} \\ \cline{4-6} 
-		&                                        &                                & \multicolumn{1}{c|}{\textbf{Aggregation}} & \multicolumn{1}{c|}{\textbf{Co-aggregation}} & \multicolumn{1}{c|}{\textbf{Co-aggregation}}                                                            \\ \hline
-		\textit{I. trianguliceps}              & \textit{Common shrew}                  & 2004                           & \multicolumn{1}{l|}{0.651}                & 0.942                                        & 0.956                                                                                                   \\ \hline
-		\textit{I. trianguliceps}              & \textit{Common shrew}                  & 2005                           & \multicolumn{1}{l|}{0.872}                & 0.968                                        & 0.975                                                                                                   \\ \hline
-		\textit{I. trianguliceps}              & \textit{Field vole}                    & 2005                           & \multicolumn{1}{l|}{0.809}                & 0.98                                         & 0.98                                                                                                    \\ \hline
-		\textit{I. ricinus}                    & \textit{Common shrew}                  & 2004                           & \multicolumn{1}{l|}{0.879}                & 0.98                                         & 0.98                                                                                                    \\ \hline
-		\textit{I. ricinus}                    & \textit{Field vole}                    & 2005                           & \multicolumn{1}{l|}{0.945}                & 0.98                                         & 0.98                                                                                                    \\ \hline
+		\textbf{Tick species}     & \textbf{Host species} & \textbf{Year} & \multicolumn{1}{c|}{\textbf{Aggregation}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Transmission \\ potential\end{tabular}}} \\ \hline
+		\textit{I. trianguliceps} & \textit{Common shrew} & 2004          & 0.747                                     & 0.963                                                                                           \\ \hline
+		\textit{I. trianguliceps} & \textit{Common shrew} & 2005          & 0.885                                     & 0.984                                                                                           \\ \hline
+		\textit{I. trianguliceps} & \textit{Field vole}   & 2005          & 0.869                                     & 0.993                                                                                           \\ \hline
+		\textit{I. ricinus}       & \textit{Common shrew} & 2004          & 0.871                                     & 0.989                                                                                           \\ \hline
+		\textit{I. ricinus}       & \textit{Field vole}   & 2005          & 0.95                                      & 0.993                                                                                           \\ \hline
 	\end{tabular}
-	\caption{The GINI coefficient for each of the five subsets of data, for which we have sufficient data, indicates heterogeneity among vertebrates for their co-feeding transmission potential, compared to the just aggregating tick heterogeneity, based on larval burdens collected in the Kielder Forest.}
+	\caption{REWRITE THIS: The GINI coefficient for each of the five subsets of data, for which we have sufficient data, indicates heterogeneity among vertebrates for their co-feeding transmission potential, compared to the just aggregating tick heterogeneity, based on larval burdens collected in the Kielder Forest.}
 	\label{tab:kielderGINI}
 \end{table}
 
 \clearpage
 
-\section{Reproducing the results by Lloyd-Smith et al, 2005}
+\section{Reproducing the results by Lloyd-Smith et al, 2005} \label{section_reproductionTheResultsByLloyd-Smithetal2005}
 
-Before we follow the example set by Lloyd-Smith and others, it will be useful to re-implement parts of their work. In their 2005 paper, Lloyd-Smith and others using a branching process to analyse disease transmissions \cite{LloydSmith2005}.
+Before we follow the example set by Lloyd-Smith et al \cite{LloydSmith2005}, it will be useful to re-implement parts of their work. In their 2005 paper, used a GWBP to analyse simulate pathogen transmissions and predict the probability that a chain of transmissions becomes extinct, for some pathogen and population with $ R_0, k $ that could be determined.
 
 Figures \ref{fig:gamma(R0,R0/k)}, \ref{fig:probabilityOfExtinction}, \ref{fig:firstGenerationToReach100Offspring} are reproduced versions of the charts shared by Lloyd-Smith et al. These illustrate the effect of the individual reproductive number $ v $. A link to the code to generate these charts is shared in the appendix.
 
@@ -556,7 +531,7 @@ Figures \ref{fig:gamma(R0,R0/k)}, \ref{fig:probabilityOfExtinction}, \ref{fig:fi
 
 \begin{figure}[h!]
     \includegraphics[width=0.5\textwidth, center]{2b_probabilityOfExtinction.png}
-    \caption{If $ Z \sim \text{Poisson}(v) $, then the resulting Poisson Mixture is a negative binomial distribution, which is the candidate offspring distribution. The probability that a chain of transmissions becomes extinct for a combination of $R_0$ and $ k $, after the introduction of a single infected individual, is found by fixed point iteration over the negative binomial distribution's probability generating function. Each simulation generates a random value for $ v \sim \text{Gamma}(R_0, \frac{R_0}{k})$, and these are used to generate different }\label{fig:probabilityOfExtinction}
+    \caption{If $ Z \sim \text{Poisson}(v) $, then the resulting Poisson Mixture is a negative binomial distribution, which is the candidate offspring distribution. The probability that a chain of transmissions becomes extinct for a combination of $R_0$ and $ k $, after the introduction of a single infected individual, is found by fixed point iteration over the negative binomial distribution's probability generating function. Each simulation generates a random value for $ v \sim \text{Gamma}(R_0, \frac{R_0}{k})$.}\label{fig:probabilityOfExtinction}
 \end{figure}
 
 \begin{figure}[h!]
@@ -564,37 +539,13 @@ Figures \ref{fig:gamma(R0,R0/k)}, \ref{fig:probabilityOfExtinction}, \ref{fig:fi
     \caption{Lloyd-Smith et al used a simulation, with the first generation to reach 100 offspring used as an arbitrary benchmark. Boxes represent the interquartile ranges for how many generations were required before a single generation contained 100 offspring, given different values of $ k $, and a fixed $ R_0=1.5 $. }\label{fig:firstGenerationToReach100Offspring}
 \end{figure}
 
-FIX THIS PARAGRAPH
-Lloyd-Smith et al also showed that if $ v \sim \text{Gamma}(R_0, \frac{R_0}{k}) $, then the resulting offspring distribution is the Negative Binomial distribution. 
+Lloyd-Smith et al noted that if $ v \sim \text{Gamma} $ and if there is a Poisson mixture $ Z \sim \text{Poisson}(v) $, then that Poisson mixture simplifies to a negative binomial distribution. If $ Z $ is also the offspring distribution of a GWBP, then we can use the probability generating function of that negative binomial distribution to approximate the probability that a chain of transmissions becomes extinct. By first reparameterising the negative binomial distribution, we can express the probability generating function (as Lloyd-Smith et al did) in terms of $ R_0, k $. The derivation for that particular probability generating function is presented in \eqref{NegBinom_PGF}. By using the more general result of convergence presented in \eqref{BranchingProcessRecurrence}, we can approximate the probability of extinction by fixed point iteration, which is the process that Figure \ref{fig:probabilityOfExtinction} shows for different combinations of $ R_0, k $.
 
-%If we represent this as a Poisson Process, then \eqref{BranchingProcess} becomes:
-
-%\begin{equation}
-%    g(s) = \displaystyle \int_{0}^{\infty} e^{-u(1-s)} f_v(u) du
-%\end{equation}
-
-And, if $ v \sim \text{Gamma}(R_0, \frac{R_0}{k}) $ then (2) becomes:
-
-\begin{equation} \label{LloydSmith_NegBinomPGF}
-    g(s) = \left( 1 + \frac{R_0}{k}(1-z) \right)^{-1}
-\end{equation}
-
-The derivation of \eqref{LloydSmith_NegBinomPGF} is presented in \eqref{NegBinom_PGF}.
-
-Then, if we wish to calculate the probability that a chain of transmissions becomes extinct at or before generation $ m $, then we can use (3) as a recurrence relation:
-
-\begin{align}
-    z_{m+1} = g(z_{m}) &= \left( 1 + \frac{R_0}{k}(1-z_{m}) \right)^{-k} \label{LloydSmith_NegBinomPGF_Recurrence1}\\
-    z = g(z) &= \left( 1 + \frac{R_0}{k}(1-z) \right)^{-k} \label{LloydSmith_NegBinomPGF_Recurrence2}
-\end{align}
-
-The equation \eqref{LloydSmith_NegBinomPGF_Recurrence1} simplifies to \eqref{LloydSmith_NegBinomPGF_Recurrence2}, because all $ z_m \le 1 $ and $ z_{m+1} \ge z_m $, meaning the series monotonically increases to a finite value. In other words, it converges.
-
-Then $z = g(z) $, which is a function that is equal to its independent variable, which is known as a fixed point. We can approximate the value, via Fixed Point Iteration, to some acceptable measure of error. Then this result we will use later to estimate the probability that a chain of co-feeding transmissions becomes extinct. The code used to recreate the work by Lloyd-Smith and others is available in the appendix at the end of this project.
+In this project, we have tick burden data. We introduce a method to obtain co-aggregation data from tick burden data, and that $ R_0, k $ can be found using that data. Then that implies that for our purposes, $ v $ is represented in the co-aggregation data already.
 
 \newpage
 
-\section{Reparameterisation of the negative binomial distribution}
+\section{Reparameterisation of the negative binomial distribution} \label{section_reparameterisationOfTheNegativeBinomialDistribution}
 
 While the work by Lloyd-Smith et al, presented above, uses the negative binomial distribution, it remains to be seen that it is the best fit for our tick co-aggregation data. To test it, we first need to derive the same parameterisation that Lloyd-Smith et al used. Then, it will be a candidate for the offspring distribution. Other candidate discrete distributions are the Poisson and geometric distributions; later in this project, we fit all distributions to the same data and then compare goodness-of-fit for each.
 
@@ -619,12 +570,14 @@ Below, we derive the probability generating function for the reparamterisation, 
 \begin{align}
 	g(z) &= \sum_{x=0} \left(\begin{matrix}x+k-1 \\ x  \end{matrix}\right) \space p^k q^x z^x \nonumber \\ 
 	     &= p^k \sum_{x=0} \left(\begin{matrix}x+k-1 \\ x \end{matrix}\right) \space (qz)^x \nonumber \\
-	     &= p^k (1-qz)^{-k} \label{NegBinomTheorem}) \\
+	     &= p^k (1-qz)^{-k} \label{NegBinomTheorem} \\
 	     &= \left(\frac{k}{m+k}\right)^k \left(1-\frac{m}{m+k}z\right)^{-k} \nonumber \\ 
-	     &= \left(\frac{m}{k}\right)(1-z)^{-k} \label{NegBinom_PGF}
+	     &= \left(1 + \frac{m}{k}(1-z)\right)^{-k} \label{NegBinom_PGF}
 \end{align}
 
-Above, (\ref{NegBinomTheorem}) is a result of the negative binomial theorem. The equation on line (\ref{NegBinom_PGF}) is the final form of the probability generating function, for use with numerical approximation later in this project.
+% CHECK THIS CALCULATION
+
+Above, \eqref{NegBinomTheorem} is a result of the negative binomial theorem. The equation on line (\ref{NegBinom_PGF}) is the final form of the probability generating function, for use with numerical approximation later in this project.
 
 \newpage
 
@@ -678,7 +631,8 @@ Conceptually, we could fit a probability distribution to $ X $ and then draw ran
 
 \begin{figure}[h!]
     \includegraphics[width=1\textwidth, center]{coaggregation_data_diagram_mk3.drawio.png}
-    \caption{A toy example of how we find the offspring distribution. Each nymph has its own contact network with larvae. The out degree for each nymph is the number of larvae that it coaggregates with. A stochastic step is applied to the vector $ X $ to determine the number of larvae that become infectious nymphs. $ R_0 $ and $ k $ are then found by fitting the reparameterised negative binomial distribution to $ X_\alpha $.}\label{fig:coaggregation_diagram}
+    \caption{A toy example of how we find the offspring distribution. Each nymph has its own contact network with larvae. The out degree for each nymph is the number of larvae that it coaggregates with. A stochastic step is applied to the vector $ X $ to determine the number of larvae that become infectious nymphs. $ R_0 $ and $ k $ are then found by fitting the reparameterised negative binomial distribution to $ X_\alpha $.}
+    \label{fig:coaggregation_diagram}
 \end{figure}
 
 \subsection{Fitting a distribution to \texorpdfstring{$ X_\alpha $}{X\_alpha}}
@@ -709,16 +663,16 @@ The expected value of the binomial distribution in \eqref{BinomialExperiment} is
 
 Then to determine $ R_0 $, which is the expected number of new infections in an offspring distribution, this is:
 
-\begin{align}\label{FindingR0FromCoaggregationMean}
+\begin{align}
     R_0 &= \frac{1}{n} \sum_i^n \mu_i \nonumber \\
     R_0 &= \frac{1}{n} \sum_i^n L_i \alpha \nonumber \\
     R_0 &= \alpha \frac{1}{n} \sum_i^n L_i \nonumber \\
-    R_0 &= \alpha m
+    R_0 &= \alpha m \label{FindingR0FromCoaggregationMean}
 \end{align}
 
 In summary, by fitting the co-aggregation distribution to $ X $, we can find the mean parameter for the $ X_\alpha $ by scaling the $ X $ mean value by $ \alpha $. This allows us to avoid using computation to determine which larvae become infectious nymphs.
 
-\subsection{Goodness of fit tests for co-aggregation distribution}
+\subsection{Goodness of fit tests for co-aggregation distribution} \label{subsection_goodnessOfFitTestsForCoaggregationDistribution}
 
 Before using the reparameterised negative binomial distribution (\ref{NegBinomReparam}) for determining the probability of extinction with a GWBP, we can check which distribution fits the co-aggregation data $ X $ best. Candidate distributions are the negative binomial, Poisson and geometric distributions. We compared the fitted distributions visually, and by using the Akaike Information Criterion (AIC) \cite{LloydSmith2005}.
 
@@ -769,39 +723,37 @@ For the visual analysis, we calculated the error of each fitted distribution by 
 	\label{fig:kielder_2005_itrianguliceps_SA}
 \end{figure}
 
-To calculate goodness of fit, for each distribution and for each subset of data, we used AIC as did the Lloyd-Smith et al paper. The AIC method rewards the best-fitting models while penalising models by their number of parameters. In the sense that the negative binomial, Poisson and geometric distributions are models, the negative binomial's fit will be offset by its extra parameter, while the Poisson and geometric distributions each have just one parameter. REF DETAILS ABOUT PARAMS.
+To calculate goodness of fit, for each distribution and for each subset of data, we used $ AIC_c $ as did the Lloyd-Smith et al paper, which is $ AIC $ but corrected for small datasets. $ AIC_c $ rewards the best-fitting models while penalising models by their number of parameters. In the sense that the negative binomial, Poisson and geometric distributions are models, the negative binomial's fit will be offset by its extra parameter, while the Poisson and geometric distributions will each be rewarded for having just one parameter. REF DETAILS ABOUT PARAMS. 
 
-AIC for distributions' fit to co-aggregation data were calculated as:
+Each distributions' fit to co-aggregation data were calculated as:
 
 \begin{align} \label{AIC}
     AIC &= 2K - 2\ln(L(\hat \theta | X)) \nonumber \\
     AIC_c &= AIC + \frac{2K(K+1)}{n-K-1}
 \end{align}
 
-For the Kielder Forest data, these $ AIC_c $ scores are presented in table \ref{tab:kielderAIC}. A point of difference is that Lloyd-Smith and others scaled their $AIC_c $ by subtracting the smallest value in each dataset, but the smallest value in all tick burden datasets used in this project is always $ 0 $.
+For the Kielder Forest data, these $ AIC_c $ scores are presented in Table \ref{tab:kielderAIC}. A point of difference is that Lloyd-Smith and others scaled their $AIC_c $ by subtracting the smallest value in each dataset, but the smallest value in all tick burden datasets used in this project is always $ 0 $.
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|r|l|l|}
-\hline
-\multicolumn{1}{|l|}{Tick species}                                                              & Distribution      & $AIC_c $    \\ \hline
-\multirow{3}{*}{\textit{\begin{tabular}[c]{@{}r@{}}I. ricinus\\ I. trianguliceps\end{tabular}}} & geometric         & $ \infty $ \\ \cline{2-3} 
-                                                                                                & Poisson           & $ 4955 $   \\ \cline{2-3} 
-                                                                                                & negative binomial & $ 2013 $   \\ \hline
-\multirow{3}{*}{\textit{I. ricinus}}                                                            & geometric         & $ \infty $ \\ \cline{2-3} 
-                                                                                                & Poisson           & $ 806 $    \\ \cline{2-3} 
-                                                                                                & negative binomial & $ 332 $    \\ \hline
-\multirow{3}{*}{\textit{I. trianguliceps}}                                                      & geometric         & $ \infty $ \\ \cline{2-3} 
-                                                                                                & Poisson           & $ 3544 $   \\ \cline{2-3} 
-                                                                                                & negative binomial & $ 1318 $   \\ \hline
-\end{tabular}
-\caption{Each subset of Kielder Forest data includes the common shrew and field vole species of vertebrates, and both years of data.}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+	\begin{tabular}{|l|l|l|lll|}
+		\hline
+		\multirow{2}{*}{\textbf{Tick species}} & \multirow{2}{*}{\textbf{Host species}} & \multirow{2}{*}{\textbf{Year}} & \multicolumn{3}{c|}{\textbf{AICc}}                                                                                                \\ \cline{4-6} 
+		&                                        &                                & \multicolumn{1}{c|}{\textbf{Negative binomial}} & \multicolumn{1}{c|}{\textbf{Geometric}} & \multicolumn{1}{c|}{\textbf{Poisson}} \\ \hline
+		\textit{I. trianguliceps}              & \textit{Common shrew}                  & 2004                           & \multicolumn{1}{l|}{\textit{773.634}}                    & \multicolumn{1}{l|}{$\infty$}           & 1811.540                              \\ \hline
+		\textit{I. trianguliceps}              & \textit{Common shrew}                  & 2005                           & \multicolumn{1}{l|}{\textit{370.802}}                    & \multicolumn{1}{l|}{$\infty$}           & 939.5                                 \\ \hline
+		\textit{I. trianguliceps}              & \textit{Field vole}                    & 2005                           & \multicolumn{1}{l|}{74.768}                     & \multicolumn{1}{l|}{$\infty$}           & \textit{73.748}                                \\ \hline
+		\textit{I. ricinus}                    & \textit{Common shrew}                  & 2004                           & \multicolumn{1}{l|}{\textit{73.725}}                     & \multicolumn{1}{l|}{$\infty$}           & 115.538                               \\ \hline
+		\textit{I. ricinus}                    & \textit{Field vole}                    & 2005                           & \multicolumn{1}{l|}{182.205}                    & \multicolumn{1}{l|}{\textit{176.696}}            & 471.78                                \\ \hline
+	\end{tabular}
+\caption{AICc (corrected AIC), fitted to subsets of the Kielder Forest data. The negative binomial distribution is the best fit for 3 subsets of data, while it is nearly the best fit in 2 cases.}
 \label{tab:kielderAIC}
 \end{table}
 
-\subsection{Fitted co-aggregation and offspring distributions}
+\subsection{Fitted co-aggregation and offspring distributions} \label{subsection_fittedCoaggregationAndOffspringDistributions}
 
-With the negative binomial distribution confirmed as the best-fit for the co-aggregation data, $ X $, we can now fit the reparameterised negative binomial distribution to subsets of the Kielder Forest data, to obtain the sample mean $ m $ and dispersion parameter $ k $.
+With the negative binomial distribution confirmed as the best-fit (or close to the best) for the co-aggregation data, $ X $, we can now fit the reparameterised negative binomial distribution to subsets of the Kielder Forest data, to obtain the sample mean $ m $ and dispersion parameter $ k $.
 
 Figures:NUMBERS show the results of MLE applied to the reparameterised negative binomial distribution for each of the 5 subsets of Kielder Forest data we identified in SECTION REF. 
 
@@ -830,49 +782,25 @@ Figures:NUMBERS show the results of MLE applied to the reparameterised negative 
 	\caption{For counts of \textit{I.trianguliceps} found on Common Shrews in 2005}\label{fig:distFit_2005_Itrianguliceps_SA}
 \end{figure}
 
-\subsection{Estimates for \texorpdfstring{$ \alpha $}{alpha} and the effect on \texorpdfstring{$ R_0 $}{R0}}
+\subsection{Estimates for \texorpdfstring{$ \alpha $}{alpha} and the effect on \texorpdfstring{$ R_0 $}{R0}} \label{subsection_estimatesForAlphaAndTheEffectOnR0}
 
-Now that we have estimates for the sample mean of the co-aggregation data, obtained from subsets of the Kielder Forest data, we can obtain a particular estimate for $ R_0 $, based on some $ \alpha $ that we nominate based on \eqref{alphaDef}. These estimates will be illustrative only; researchers who wish to calculate the probability that a new outbreak becomes extinct would do well to provide better estimates about their particular tick species, host species, pathogen and environmental conditions.
+Now that we have estimates for the sample mean of the co-aggregation data, obtained from subsets of the Kielder Forest data, we could obtain a particular estimate for $ R_0 $ based on some $ \alpha $ that we nominate based on \eqref{alphaDef}. Researchers who wish to calculate the probability that a new outbreak becomes extinct would do well to provide estimates about their particular tick species, host species, pathogen and environmental conditions.
 
-\begin{table}[h!]
-	\begin{tabular}{|lrl|}
-		\hline
-		\multicolumn{1}{|l|}{Parameter}  & \multicolumn{1}{l|}{Estimate} & Reason
-		\\ \hline
-		\multicolumn{1}{|l|}{$ c $}      & \multicolumn{1}{r|}{0.4}      & \begin{tabular}[c]{@{}l@{}}Ticks tend to feed on or near ears GET REF. Most vertebrates \\have two ears, but some vertebrates will attach away from an ear.\end{tabular} \\ \hline
-		\multicolumn{1}{|l|}{$ v $}      & \multicolumn{1}{r|}{0.95}     & Arbitrarily set to be not perfect. 
-		\\ \hline
-		\multicolumn{1}{|l|}{$ \sigma $} & \multicolumn{1}{r|}{$ 0.5$ }      & Estimates range between $ 0.1 $ and $ 0.9 $.
-		\\ \hline
-	\end{tabular}
-	\caption{$\alpha$ estimates for a generic combination of tick species, host species, pathogen and environmental conditions.}
-	\label{table:kielderForestParamEstimates}
-\end{table}
-
-Based on the estimates provided in table \ref{table:kielderForestParamEstimates}, $ \alpha = cv\sigma = 0.19 $. While this estimate is based on some naive assumptions, it is useful for illustration purposes and for determining an example of probability of extinction and simulations in a later section. REMOVE THIS IF YOU DON'T GET TO RUN THE SIMULATIONS.
-
-However, we can understand the effect on $ R_0 $ even if we do not have a particular $ \alpha $. We can also understand the relationship between $ \alpha $ and $ R_0 $ with the simple linear equation \eqref{FindingR0FromCoaggregationMean}. Since a chain of transmission will certainly become extinct if $ R_0 < 1 $, then we are interested in the case where $ R_0 > 1 $. Other words, what is the minimum value of $ \alpha $ such that a chain of transmissions might persist? This is found with:
-
-I HAVE FORGOTTEN, WHAT HAPPENS WHEN $ R_0 = 1 $, FIND CITATION
+However, we can understand the effect on $ R_0 $ without specifying the value of $ \alpha $ by utilising the simple linear equation \eqref{FindingR0FromCoaggregationMean}. Since a chain of transmission will certainly become extinct if $ R_0 \le 1 $, then we are interested in the case where $ R_0 > 1 $. Other words, what is the minimum value of $ \alpha $ such that a chain of transmissions might persist? This is found with:
 
 \begin{align}
-	R_0 > 1 \implies m\alpha &< 1 \nonumber \\
-					  \alpha &< \frac{1}{m}
+	R_0 = m\alpha > 1 \implies \alpha > \frac{1}{m}
 \end{align}
 
-Since $ m $ is known for each subset of Kielder Forest data, then letting $ \alpha $ vary allows us to see the effect on $ R_0 $:, in FIGURE REF. Simply put, the effect of $ \alpha $ is a line that intersects $ R_0 = 0 $ at $ \alpha = 0 $, where the gradient is the sample mean of the co-aggregation data, $ X $.
+Since $ m $ is known for each subset of Kielder Forest data, then letting $ \alpha $ vary allows us to see the effect on $ R_0 $, in FIGURE REF. Simply put, the relationship between $ R_0 $ and $ \alpha $ is linear, such that the function has an intercept of $ R_0=0 $ where $\alpha=0 $. The gradient is the sample mean of the co-aggregation data, $ m $. Note that since $ 0 \le \alpha \le 1 $ then this imposes bounds on the value that $ R_0 $ can possibly take.
 
-FIGURE OF STRAIGHT LINES INTERSECTING THE ORIGIN, WITH THE GRADIENT OF EACH EQUAL TO SAMPLE MEAN, ALPHA AS INDEPENDENT VARIABLE.
+CHART OF LINES FOR THE EFFECT THAT $ \alpha $ HAS ON $ R_0 $.
 
-\subsection{Estimates for the probability of extinction}
+\subsection{Estimates for the probability of extinction} \label{subsection_estimatesForTheProbabilityOfExtinction}
 
-Finally, we can use estimates of $ R_0 $ and $ k $, obtained for each subset of Kielder Forest data, to determine the probability that a chain of transmissions that starts with a single infectious tick eventually becomes extinct. We do this using our estimate of $ R_0 $ for each subset of Kielder Forest data (tick species, host species, and year) based on the naive estimate of $ \alpha $. We then do this as we let $ R_0 $ vary, since we can not be sure about the value of $ \alpha $.
+Finally, we can use estimates of $ k $ and possible values of $ R_0 $, obtained for each subset of Kielder Forest data, to determine the probability that a chain of transmissions that starts with a single infectious tick eventually becomes extinct. By using the negative binomial distribution's probability generating function REF EQUATION, reparameterised to use $ R_0 $ and $ k $ for the offspring distribution $ X_{\alpha} $, we can use Fixed Point Iteration to approximate the probability of eventual extinction. However, since do not know the actual value of $ R_0 $, we instead graphically show the range of extinction probabilities based on the possible values of $ \alpha $.
 
-By using the negative binomial distribution's probability generating function REF EQUATION, reparameterised to use $ R_0 $ and $ k $ for the offspring distribution $ X_{\alpha} $, we can use Fixed Point Iteration to approximate the probability of eventual extinction.
-
-TABLE FOR THE PROBABILITIES OF EXTINCTION BASED ON THE NAIVE ESTIMATE OF ALPHA.
-
-We take inspiration from the charts by Lloyd-Smith et al \cite{LloydSmith2005}, presented in REF FIGURES, and plot the probability of extinction and the simulation where the first generation to reach 100 offspring as an arbitrary benchmark. However, where Lloyd-Smith et al fixed $ R_0 $ and let $ k $ vary, we will instead fix $ k $ for each subset of the Kielder Forest data and let $ \alpha $ and $ R_0 $ vary, to reflect our uncertainty about the value of $ \alpha $.
+We take inspiration from the charts by Lloyd-Smith et al \cite{LloydSmith2005} and reproduce the plot of probabilities of extinction \ref{fig:probabilityOfExtinction} and the plot of simulations where the first generation to reach 100 offspring is an arbitrary benchmark \ref{fig:firstGenerationToReach100Offspring}. However, where Lloyd-Smith et al let $ R_0 $ and $ k $ vary for their probabilities of extinction, we will instead let $ alpha $ vary for each subset of of Kielder Forest data, since we know $ k $ but do not know $ R_0 $. Also, where Lloyd-Smith et al fixed $ R_0 $ and ran multiple simulations for different values of $ k $, we will instead fix $ k $ for each subset of Kielder Forest data while allowing $ \alpha $ to vary.
 
 FOR EACH SUBSET OF KIELDER FOREST DATA, REPRODUCE THE LS CHARTS FOR THE PROBABILITY OF EXTINCTION, FIXING K AND LETTINT ALPHA VARY.
 
@@ -880,25 +808,28 @@ FOR EACH SUBSET OF KIELDER FOREST DATA, REPRODUCE THE LS CHARTS FOR THE PROBABIL
 
 \section{Discussion}
 
-This project has investigated a scenario where co-feeding transmission is the only viable route of transmission for a tick-borne pathogen. We specifically looked at \textit{Ixodidae} (Hard Ticks), which feed only once per life stage \cite{}.
+In this project, we have made some assumptions, which vary in the reason for their introduction; some are simplifying assumptions that make the task more tractable, while some are appropriate due to the biological realism we wish to emulate. This discussion will focus on the assumptions made and the consequences of using those. We will also consider alternative assumptions we could have used, and potential ideas for future research based on modified assumptions.
 
-In this project, we have made some assumptions, which vary in the reason for their introduction; some are simplifying assumptions, while some are appropriate due to the biological realism we wish to emulate. This discussion will focus on the assumptions made and the consequences of using those and alternative assumptions we could have used. Finally, we talk about opportunities for further research based on this project.
+The first and most obvious assumption in this project was to make co-feeding transmission the only viable route of transmission. This assumption is of interest since various factors are causing ticks to spread \cite{} and therefore, it is possible that a tick carrying some pathogen might move into an area where a naive population of vertebrate hosts are incompetent to maintain that pathogen. In that case, the role of systemic transmission would be limited. Assuming that co-feeding transmission is the only viable route of transmission also allows us to use a single-type GWBP, which is effective for understanding the risk of extinction at the start of an outbreak for a directly-transmissible pathogen \cite{}. Only considering co-feeding transmission would of course be inappropriate for estimating the probability of extinction for many TBD systems, where we know systemic transmission is common. However even in those cases, it would be interesting to find that some pathogens could exist with some combinations of tick and host species. If one wished to include co-feeding transmission for analysis with the methods presented in this project then potentially 
 
-The first and most obvious assumption made was to make co-feeding transmission the only viable route of transmission. This assumption is of interest since various factors are causing ticks to spread \cite{}. Therefore, it is possible that a ticks carrying a pathogen might move into an area where a naive population of vertebrate hosts exists, and that those vertebrate hosts would be incompetent hosts to maintain a pathogen. Therefore, the role of systemic transmission in that scenario would be less important. The role of trans-ovarial tranmsission is assumed to be minor, since adult ticks are the least-common life stage to be found in nature \cite{}. Assuming that co-feeding transmission is the only viable route of transmission also allows us to use a single-type GWBP, which is effective for understanding the risk of extinction at the start of an outbreak for a directly-transmissible pathogen \cite{}. Assuming that co-feeding transmission is the only viable form of transmission will be an insufficient technique for estimating the probability of extinction for a tick-borne disease system where we know systemic transmission is common, but in this scenario, we can interpret the probability of extinction for co-feeding transmission as an upper bound on the overall risk of extinction for all forms of transmission.
+The role of transovarial transmission is assumed to be minor, since adult ticks are the least-common life stage to be found in nature \cite{}
 
-The assumption that co-feeding transmission is from infectious nymph to a nearby larvae only is a simplifying assumption. In reality, it is possible that an infected nymph will feed close to other nymphs and that those other nymphs could become infected. This is particularly possible for nidicolous ticks, which tend to WHAT \cite{}. If an infectious nymph did infect another nymph, then the newly-infected nymph would have to survive moulting before it could feed on another vertebrate host as an adult. However, adults tend to feed on larger hosts and immature ticks tend to feed on smaller hosts \cite{}, so the that particular chain of transmissions would likely end there.
+The assumption that co-feeding transmission is from infectious nymph to a nearby larvae only is a simplifying assumption; in reality it is possible that an infected nymph will feed close to, and infect, other nymphs. This is particularly sensible for nidicolous ticks, which tend to WHAT \cite{}. The Kielder Forest data, for example, has many recorded observations of captured vertebrates that each have multiple nymphs of the same species. But if we suppose that an infectious nymph did infect another nymph, then the newly-infected nymph would have to survive moulting before it could feed on another vertebrate host as an adult, which would most-likely be a large vertebrate host \cite{}. Given that the more-numerous immature ticks feed on smaller vertebrate hosts \cite{}, then that particular adult tick would be unlikely to co-feed with other ticks and that particular chain of transmissions would most likely end there.
 
-We also assume that at most one infectious nymph will co-feed with larvae on each host. This is reasonable for non-nidicolous tick species, which tend to drop off their vertebrate hosts and moult in a wider range of locations \cite{}. Nidicolous ticks, however, tend to WHAT \cite{}. Therefore, for nidicolous ticks, having two infectious nymphs co-feed on the same vertebrate might increase the amount of pathogens available for infecting the co-feeding larvae. However, if we would continue to use a single-type GWBP, then the co-feeding larvae would need to be divided amongst the infected nymphs. 
+We also assume that at most one infectious nymph will co-feed with larvae on each host. This is reasonable for non-nidicolous tick species, which tend to drop off their vertebrate hosts and moult in a wider range of locations \cite{}. Nidicolous ticks, however, tend to WHAT \cite{}. An alternative assumption would have been to allow for multiple infectious ticks to take their blood meals from the same vertebrate host, as we might expect with nidicolous ticks. The effect of this might be to increase the overall probability $ \alpha $ \eqref{alphaDef} that co-feeding larvae become infected, due to more infectious nymphs increasing the overall load of pathogens. Alternatively, this situation could also be handled by dividing the co-feeding larvae amongst the infectious nymphs before applying $ \alpha $. 
 
-% I DON"T THINK THIS MATTERS
-% The use of Kielder Forest data makes the assumption that small vertebrate hosts will live for one year. This is reflected by using the data from 2004 and 2005 as two distinct groups of vertebrate hosts. 
+The division of the Kielder Forest data into subsets that are each a combination of tick species, host species and year of capture has implications for how we can interpret the estimates of $ R_0, k $ and the probability that a chain of transmissions becomes extinct. The data is segregated by tick species, because the tick species under study, \textit{I. ricinus} and \textit{I. trianguliceps}, are not known to be vectors for the same pathogens \cite{}. Therefore, a larva that co-feeds with an infectious nymph of a different species will not become an infectious nymph with the same pathogen. Even if the two tick species under study were vectors for the same pathogen, then $ \alpha $ (the probability of becoming an infectious nymph) for each species would be different due to different moulting success rates and different magnitudes of vector competence.
 
-The division of the Kielder Forest data has implications for how we can interpret the estimates of $ R_0, k $ and the probability that a chain of transmissions becomes extinct. Firstly, the tick species under study, \textit{I. ricinus} and \textit{I. trianguliceps}, are assumed to not be vectors for the same pathogens. Therefore, finding one species of larvae co-feeding with the other species of nymph would mean that transmission could not occur. More problematic is dividing the data by host species as well. We did this to reflect that the probability of transmission for a single species of tick is different depending on which vertebrate host they feed on. The Field Vole is smaller than the Common Shrew, so the probability that ticks co-feed close enough for transmission to occur would depend on the host species on which they feed. However, partitioning the data by host species means the co-aggregation distribution misses information; for example an infectious nymph could infect a larvae would co-feeding on a Common Shrew, and then, that larvae could survive to become a infectious nymph and co-feed with larvae on a Field Vole. Potentially, this could be addressed with a multi-type GWBP. That was outside the scope of this project, but would be interesting future research.
+This project also divided the Kielder Forest data into subsets by host species. This reflects that the probability of transmission for a single species of tick is different depending on which vertebrate host they feed on. The probability that ticks co-feed close enough for transmission to occur depends on the host species on which they feed; since the Field Vole is smaller than the Common Shrew, then we can expect different rates of transmission success during co-feeding for the two different species of host. However, partitioning the data by host species means the co-aggregation distribution misses information; for example an infectious nymph could infect a larvae would co-feeding on a Common Shrew, and then, that larvae could survive to become a infectious nymph and co-feed with larvae on a Field Vole. Potentially, this could be addressed with a multi-type GWBP. That was outside the scope of this project, but would be interesting future research.
 
-Some work is required by anyone who wishes to use the results of this research. Firstly, it should be simple to count the number of larvae that co-feed with each nymph, from which one can obtain the sample mean for the co-aggregation data. One can then fit the reparameterised negative binomial distribution to obtain the dispersion parameter. The real work would be determining a viable estimate of $ \alpha $, which is the probability that a co-feeding nymph gets infected, survives the moulting process and maintains the pathogen transstadially. This would likely depend on the tick species, pathogen, host species and environmental condition in which the transmission takes place. In this project, we were not able to determine accurate estimates for $ \alpha $, SO WHAT DID WE DO. In using the method presented in this project to determine $ R_0 $ based on $ \alpha $, one may add terms to $ \alpha $ since it is understood simply as the overall probability that a larva co-feeding with an infectious nymph becomes itself an infectious nymph. There might be factors in determining $ \alpha $ that we did not discuss in this project.
+Some work is required by anyone who wishes to use the results of this research; calculating the probability of extinction in a TBD transmission network requires multiple steps. Firstly, once field data is obtained, it should be simple to count the number of larvae that co-feed with each nymph, from which one can obtain the sample mean for the co-aggregation data. Then, one can fit the reparameterised negative binomial distribution to obtain the dispersion parameter $ k $. The real work would be determining a viable estimate of $ \alpha $ \eqref{alphaDef}, which is needed to find $ R_0 $. This would likely depend on the tick species, pathogen, host species and environmental conditions in which the transmission takes place. In this project, we were not able to determine accurate estimates for $ \alpha $, so instead we analysed what effect $ \alpha $ has on $ R_0 $ during co-feeding transmission. If one was to obtain plausible and reliable estimates for $ \alpha $, then $ R_0 $ due to co-feeding transmission can easily be obtained by using \eqref{FindingR0FromCoaggregationMean}.
+
+
 
 \section{Conclusion}
- 
+
+In this project have investigated a scenario where co-feeding transmission is the only viable route of transmission for a tick-borne pathogen. We specifically looked at \textit{Ixodidae} (Hard Ticks), which feed only once per life stage \cite{}. The project aim was to use a GWBP to find an approximate risk of a chain of transmissions becoming extinct, which is of particular interest at the start of an outbreak.
+
 \newpage
 
 \nocite{*}
@@ -909,5 +840,10 @@ Some work is required by anyone who wishes to use the results of this research. 
 \section{Appendix}
 
 The author completed all analysis using Python and Jupyter notebooks, and compiled this document using LaTeX (TeXstudio). All analysis, code, and LaTeX source files are available at \url{https://github.com/JasonThomasData/honours_project}.
+
+Figures \ref{fig:graphical_abstract}, \ref{fig:coaggregation_diagram} were made using \url{https://app.diagrams.net/}.
+
+Tables were formatted with \url{https://www.tablesgenerator.com/#}.
+
 
 \end{document}

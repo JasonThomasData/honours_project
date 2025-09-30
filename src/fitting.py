@@ -62,7 +62,7 @@ def plot_goodness_of_fit(e_cdf, coaggregation_per_nymph, years_display, tick_spe
     plt.step(e_cdf.cdf.quantiles, e_cdf.cdf.probabilities, label="emperical CDF")
 
     plt.legend()
-    plt.suptitle("Emperical CDF and fitted distribution CDFs")
+    plt.title("Emperical CDF and fitted distribution CDFs")
     #plt.title("Ticks: {} & Vertebrates: {}".format(tick_species_display, host_species_display))
     plt.grid(axis='x', color='0.95')
     plt.xlabel("x")
@@ -89,7 +89,7 @@ def plot_goodness_of_fit(e_cdf, coaggregation_per_nymph, years_display, tick_spe
     plt.plot(e_cdf.cdf.quantiles, poisson_cdf_residuals, label="poisson", marker="p", linewidth=0)
     
     plt.legend()
-    plt.suptitle("Error: difference between emperical CDF and fitted CDF")
+    plt.title("Error: difference between emperical CDF and fitted CDF")
     #plt.title("Tick: {} & Vertebrates: {}".format(tick_species_display, host_species_display))
     plt.grid(axis='x', color='0.95')
     plt.xlabel("x")

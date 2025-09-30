@@ -75,7 +75,6 @@ def get_coaggregation_per_vertebrate_JR(dataframe, ricinus, trianguliceps):
         if trianguliceps:
             nymph_count += row["triangulicepsN"]
             larvae_count += row["triangulicepsL"]
-
         coaggregation_per_verterbrate.append(nymph_count*larvae_count)
     return coaggregation_per_verterbrate
 

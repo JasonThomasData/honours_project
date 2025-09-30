@@ -18,8 +18,6 @@ def get_Perkins_curve(data, removal_count=100, remove_zero=False):
     
     h_step = m/removal_count
     
-    h_percent = list(range(1,removal_count+1))
-    
     transmission_potential = []
     for i in list(range(0, m)):
         v_i = descending_data[i]/v
@@ -35,9 +33,15 @@ def get_Perkins_curve(data, removal_count=100, remove_zero=False):
     #print(transmission_potential)
     
     transmission_potential_percentages = []
+
+    h_percent = list(range(0,removal_count+1))
+
     for j in h_percent:
-        h_j = round(j*h_step) # this many vertebrates in calculation
-        potential_of_removed_hosts = sum(transmission_potential[0:h_j])/total_transmission_potential
+        if j==0:
+            potential_of_removed_hosts = 0
+        else:
+            h_j = round(j*h_step) # this many vertebrates in calculation
+            potential_of_removed_hosts = sum(transmission_potential[0:h_j])/total_transmission_potential
         transmission_potential_percentages.append(potential_of_removed_hosts)
 
     return transmission_potential_percentages
@@ -54,7 +58,7 @@ def get_JR_curve(bnbl, bl, removal_count=100, remove_zero=False):
 
     h_step = m/removal_count
 
-    h_percent = list(range(1,removal_count+1))
+    h_percent = list(range(0,removal_count+1))
 
     transmission_potential = []
     for i in list(range(0, m)):
@@ -63,10 +67,41 @@ def get_JR_curve(bnbl, bl, removal_count=100, remove_zero=False):
 
     transmission_potential_percentages = []
     for j in h_percent:
-        h_j = round(j*h_step) # this many vertebrates in calculation
-        potential_of_removed_hosts = sum(transmission_potential[0:h_j])/total_transmission_potential
+        if j==0:
+            potential_of_removed_hosts = 0
+        else:
+            h_j = round(j*h_step) # this many vertebrates in calculation
+            potential_of_removed_hosts = sum(transmission_potential[0:h_j])/total_transmission_potential
         transmission_potential_percentages.append(potential_of_removed_hosts)
 
     return transmission_potential_percentages
 
+def get_aggregation_curve(data, removal_count=100, remove_zero=False):
+    # For aggregation and coaggregation data
+    if remove_zero:
+        data = [x for x in data if x != 0]
+    descending_data = sorted(data)
+    descending_data.reverse()
+    m = len(descending_data)
+    v = sum(descending_data)
+    
+    h_step = m/removal_count
+    
+    h_percent = list(range(0,removal_count+1))
+    
+    aggregation_cummulative = []
+    for i in list(range(0, m)):
+        v_i = descending_data[i]/v
+        aggregation_cummulative.append(v_i)
+    aggregation_total = sum(aggregation_cummulative)
+    
+    aggregation_percentages = []
+    for j in h_percent:
+        if j==0:
+            aggregation_of_removed_hosts = 0
+        else:
+            h_j = round(j*h_step) # this many vertebrates in calculation
+            aggregation_of_removed_hosts = sum(aggregation_cummulative[0:h_j])/aggregation_total
+        aggregation_percentages.append(aggregation_of_removed_hosts)
 
+    return aggregation_percentages

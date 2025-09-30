@@ -256,4 +256,26 @@
   publisher = {Springer Science and Business Media LLC},
 }
 
+@InBook{Pf_ffle_2017,
+  pages     = {167--171},
+  title     = {Ixodes trianguliceps Birula, 1895 (Figs. 57–59)},
+  publisher = {Springer International Publishing},
+  year      = {2017},
+  author    = {Pfäffle, M.P. and Petney, T.N. and Madder, M.},
+  isbn      = {9783319637600},
+  booktitle = {Ticks of Europe and North Africa},
+  doi       = {10.1007/978-3-319-63760-0_34},
+}
+
+@InBook{Otranto_2017,
+  pages     = {189--195},
+  title     = {Ixodes ricinus (Linnaeus, 1758) (Figs. 67−69)},
+  publisher = {Springer International Publishing},
+  year      = {2017},
+  author    = {Otranto, D. and Dantas-Torres, F. and Santos-Silva, M.M.},
+  isbn      = {9783319637600},
+  booktitle = {Ticks of Europe and North Africa},
+  doi       = {10.1007/978-3-319-63760-0_38},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
