@@ -105,7 +105,6 @@
 	
 \end{titlepage}
 
-
 \section*{Declaration}
 I certify that except where due acknowledgement has been made, the work is that of the author alone; the work has not been submitted previously, in whole or in part, to qualify for any other academic award; the content of the thesis is the result of work which has been carried out since the official commencement date of the approved research program; any editorial work, paid or unpaid, carried out by a third party is acknowledged; and, ethics procedures and guidelines have been followed. \\
 [1cm]
@@ -122,9 +121,19 @@ I thank:
 \item Sarah Cowen, Dr Caroline Foster-Guanzon and Cooper Maher for proofreading. 
 \end{itemize}
 
+\section*{Statement of contribution}
+
+All work presented in this thesis is my own, unless stated otherwise.
+
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+
 \newpage
 
 \section*{Abstract}
+
+MAKE 200 WORDS, TOO LONG
+
 Tick-borne pathogens cause significant health issues for humans and livestock worldwide. Ticks feed on vertebrate hosts, which allows pathogens to spread and frequently cause harmful diseases. Pathogens sometimes infect ticks via co-feeding transmission, where a feeding tick transmits a pathogen directly to another feeding tick.
 
 This project makes use of a branching process technique to determine the probability that a chain of co-feeding transmissions becomes extinct. We used 2004-2005 data from the Kielder Forest in England, which includes two species of hard bodied (\textit{Ixodidae}) ticks and two species of vertebrate host, to estimate probability of extinction for some unspecified pathogen.
@@ -133,10 +142,12 @@ This project presents a technique, which we believe is novel, for using commonly
 
 This project uses a novel combination of Lorenz curves and a recent result for estimating $ R_0 $ in co-feeding transmission, to determine vertebrate hosts’ relative heterogeneity in tick burdens and in co-feeding transmission potential. While much research has cited the 80:20 rule for heterogeneity in tick burdens, this project finds that co-feeding transmission potential for some vertebrate host species is instead a 99:1 rule. The technique presented here is useful since it uses commonly-collected tick burden data and does not require an estimate for $ R_0 $.
 
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+
 \newpage
 
 \section*{Graphical abstract}
-
 
 \begin{figure}[h!]
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
@@ -149,10 +160,34 @@ This project uses a novel combination of Lorenz curves and a recent result for e
 	\end{mdframed}
 \end{figure}
 
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+
+\newpage
+
+\section*{Summary}
+
+MAKE SHORTER 200 WORDS, MAKE IT NON-TECHNICAL
+
+This thesis aims to predict the probability of extinction within a TBD network in a scenario where a single infectious nymph, a population of susceptible larvae, and a population of vertebrate hosts share a single habitat. To determine this probability, we find an offspring distribution and use a single-type GWBP, similar to the work by Lloyd-Smith et al \cite{LloydSmith2005}. However, where Lloyd-Smith et al used contact trace datasets for transmissions between people, we use field data that reports the larval and nymphal burdens (co-agggregation data) of vertebrate hosts that were collected in a survey at the Kielder Forest, in the United Kingdom, between 2004-2005 \cite{Bown2008, Bown2011}.
+
+We introduce a novel technique to measure and compare the heterogeneity in vertebrates' ranked transmission potentials for facilitating co-feeding, without first having to obtain an estimate for $ R_0 $. This uses Lorenz curves and is inspired by the work of Perkins et al \cite{Perkins_2003} and Johnstone-Robertson et al \cite{JohnstoneRobertson2020}.
+
+This thesis introduces what we believe is a novel method to obtain the parameters $ R_0 $ and $ k $ needed for an offspring distribution directly from the empirical co-aggregation data. In this project, we are unable to precisely determine $ R_0 $ for each subset of Kielder Forest data, so we report a range of possible probabilities of extinction. However, it might be feasible for other researchers to obtain accurate estimates for some particular combinations of tick species, host species and environmental conditions. We report threshold values that would allow $ R_0 > 1 $ for each subset of data.
+
+To assist with understanding the probability of extinction within a TBD network, we re-implement many of the results by Lloyd-Smith et al. To find the parameters $ R_0 $ and $ k $, this project uses a reparameterised negative binomial distribution. We compare the goodness-of-fit for that distribution to the other distributions, and find that the negative binomial is either the best fit or close to the best in each case, which matches the findings of Lloyd-Smith et al. To help put many results in context, we re-implement and modify some simulations and visualisations made by Lloyd-Smith et al. 
+
+To help more people use the results of this research, a link to all code used to generate the analysis and figures is provided in the Appendix. The Discussion addresses as many assumptions as possible, alternative assumptions, and the consequences of using those assumptions.
+
+\thispagestyle{empty}
+\addtocounter{page}{-1}
 
 \newpage
 
 \tableofcontents
+
+\thispagestyle{empty}
+\addtocounter{page}{-1}
 
 \newpage
 
@@ -316,20 +351,6 @@ In this thesis, we model transmission as infectious nymphs beget new infectious 
 
 \newpage
 
-\section{Research project summary}
-
-This thesis aims to predict the probability of extinction within a TBD network in a scenario where a single infectious nymph, a population of susceptible larvae, and a population of vertebrate hosts share a single habitat. To determine this probability, we find an offspring distribution and use a single-type GWBP, similar to the work by Lloyd-Smith et al \cite{LloydSmith2005}. However, where Lloyd-Smith et al used contact trace datasets for transmissions between people, we use field data that reports the larval and nymphal burdens (co-agggregation data) of vertebrate hosts that were collected in a survey at the Kielder Forest, in the United Kingdom, between 2004-2005 \cite{Bown2008, Bown2011}.
-
-We introduce a novel technique to measure and compare the heterogeneity in vertebrates' ranked transmission potentials for facilitating co-feeding, without first having to obtain an estimate for $ R_0 $. This uses Lorenz curves and is inspired by the work of Perkins et al \cite{Perkins_2003} and Johnstone-Robertson et al \cite{JohnstoneRobertson2020}.
-
-This thesis introduces what we believe is a novel method to obtain the parameters $ R_0 $ and $ k $ needed for an offspring distribution directly from the empirical co-aggregation data. In this project, we are unable to precisely determine $ R_0 $ for each subset of Kielder Forest data, so we report a range of possible probabilities of extinction. However, it might be feasible for other researchers to obtain accurate estimates for some particular combinations of tick species, host species and environmental conditions. We report threshold values that would allow $ R_0 > 1 $ for each subset of data.
-
-To assist with understanding the probability of extinction within a TBD network, we re-implement many of the results by Lloyd-Smith et al. To find the parameters $ R_0 $ and $ k $, this project uses a reparameterised negative binomial distribution. We compare the goodness-of-fit for that distribution to the other distributions, and find that the negative binomial is either the best fit or close to the best in each case, which matches the findings of Lloyd-Smith et al. To help put many results in context, we re-implement and modify some simulations and visualisations made by Lloyd-Smith et al. 
-
-To help more people use the results of this research, a link to all code used to generate the analysis and figures is provided in the Appendix. The Discussion addresses as many assumptions as possible, alternative assumptions, and the consequences of using those assumptions.
-
-\newpage
-
 \section{Summaries of Kielder Forest data}
 
 This project makes use of data provided by **INSERT** Kevin Bown. The **INSERT** collected that data in the Kielder Forest in the United Kingdom between April and August in 2004 and 2005. The provided dataset presents the numbers of larvae and nymphs found on each vertebrate. Vertebrates were included in the collection once only.
@@ -423,9 +444,9 @@ Based on low tick burden counts, we exclude several combinations but will invest
 There are several sensible reasons to separate these data into these 5 separate categories, rather than analysing all data together:
 
 \begin{itemize}
-    \item \textit{I. ricinus} is non-nidicolous while \textit{I. trianguliceps} is nidicolous, indicating different behaviour REF.
-    \item The pathogens transmitted by each tick species are frequently not the same pathogens REF.
-    \item An adult common shrew is larger than the adult field vole REF, which implies the chances of nymphs and larvae co-aggregating in close enough proximity 
+    \item \textit{I. ricinus} is non-nidicolous while \textit{I. trianguliceps} is nidicolous, indicating different behaviour \cite{}.
+    \item The pathogens transmitted by each tick species are frequently not the same pathogens \cite{}.
+    \item An adult common shrew is larger than the adult field vole \cite{}, which implies the chances of nymphs and larvae co-aggregating in close enough proximity.
     \item Yearly seasonal variation shown in Figure \ref{fig:kielder_seasonal} suggests that these ticks have peak activities at different times of the year.
 \end{itemize}
 
