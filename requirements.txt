@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+jupyter
+notebook
+scipy
+openpyxl
+
