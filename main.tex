@@ -363,7 +363,7 @@ The data includes only the tick species \textit{I. trianguliceps} and  \textit{I
 
 Of interest is whether larvae and nymphs of a particular tick species have the same seasonal variation in activity. If the larvae and nymphs are active at different times, then the opportunity for co-feeding transmission to occur is limited. Seasonal activity for nymphs and larvae, for \textit{I. ricinus} and \textit{I. trianguliceps}, collected at the Kielder Forest is presented in Figure \ref{fig:kielder_seasonal}.
 
-\begin{figure}[h]
+\begin{figure}[]
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
 	\centering
 	\begin{tabular}{ll}
@@ -377,7 +377,7 @@ Of interest is whether larvae and nymphs of a particular tick species have the s
 
 Overall counts of larval and nymphal burdens for both species of tick, and for the common shrew and field vole host species, are presented in Table \ref{tab:counts_kielder_overall}.
 
-\begin{table}[h]
+\begin{table}[]
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
 	\centering
 	\begin{tabular}{|llrrrr|}
@@ -414,7 +414,7 @@ This project makes the assumption that co-feeding is the only viable route of tr
 %\end{table}
 
 
-\begin{table}[ht]
+\begin{table}[]
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
 	\centering
 	\begin{tabular}{|llrrrr|}
@@ -470,7 +470,7 @@ We used the SciPy package in Python to perform the test. We found weak evidence 
 	\end{mdframed}
 \end{table}
 
-Assuming confidence of $ 0.95 $, then the pvalue $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of co-aggregation. Not finding evidence of correlation should not prevent us from doing the analysis.
+Assuming confidence of $ 0.95 $, then the pvalue $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of co-aggregation. It is interesting that later in this project, we show co-feeding transmission between \textit{I. trianguliceps} that co-feed on \textit{Field Voles} will not maintain a pathogen's survival.
 
 \subsection{Tick burden heterogeneity} 
 
@@ -584,6 +584,8 @@ Figures \ref{fig:gamma(R0,R0/k)}, \ref{fig:probabilityOfExtinction}, \ref{fig:fi
 
 Figure \ref{fig:firstGenerationToReach100Offspring} highlights the effect of superspreaders. We first use a stochastic simulation that randomly draws the individual reproductive number $ v $ from the $ Gamma\left(R_0, \frac{R_0}{k}\right) $ distribution. Then numbers of offspring are randomly drawn from a Poisson Mixture: $ Poisson(v) $. That means there are two sources of randomness in the simulations presented in Figure \ref{fig:firstGenerationToReach100Offspring}. We record the number of generations required before a generation with 100 offspring is found. We also record the rate of outbreaks that survive 10,000 generations. A low value for $ k $ implies a heterogeneous population where few individuals infect many others. Inversely, $ k = \infty $ implies a homogeneous population where each individual infects (close to) $ R_0 $ others. For low values of $ k $, the related low survival rate (along the second vertical axis) combined with the smaller average and smaller spread in the number of generations before a generation with 100 offspring is found, indicates that when $ k $ is small an outbreak either explodes in numbers quickly or not at all.
 
+By comparing Figures \ref{fig:probabilityOfExtinction} and \ref{fig:firstGenerationToReach100Offspring}, we can see that when $ R_0=1.5 $, then the extinction probability $ q $ is roughly the complement of the survival rate. That is not surprising, but it is interesting and encouraging to see.
+
 \begin{figure}[]
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
     \includegraphics[width=0.48\textwidth, center]{2a_gamma.png}
@@ -595,7 +597,7 @@ Figure \ref{fig:firstGenerationToReach100Offspring} highlights the effect of sup
 \begin{figure}[]
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
     \includegraphics[width=0.48\textwidth, center]{2b_probabilityOfExtinction.png}
-    \caption{If $ Z \sim \text{Poisson}(v) $, then the resulting Poisson Mixture is a negative binomial distribution, which is a candidate offspring distribution. The probability that a chain of transmissions becomes extinct for a combination of $R_0$ and $ k $, after the introduction of a single infected individual, is found by fixed point iteration over the negative binomial distribution's probability generating function. Each simulation generates a random value for $ v \sim \text{Gamma}(R_0, \frac{R_0}{k})$. Note that for $ k = \infty $, we used $ k=10^{12} $.}
+    \caption{If $ Z \sim \text{Poisson}(v) $, then the resulting Poisson Mixture is a negative binomial distribution, which is a candidate offspring distribution. The probability that a chain of transmissions becomes extinct for a combination of $R_0$ and $ k $, after the introduction of a single infected individual, is found by fixed point iteration over the negative binomial distribution's probability generating function. Each simulation generates a random value for $ v \sim \text{Gamma}(R_0, \frac{R_0}{k})$. Note that for $ k = \infty $, we used $ k=10^{12} $. The vertical dotted line is $ R_0=1.5$ that we use in Figure \ref{fig:firstGenerationToReach100Offspring}.}
     \label{fig:probabilityOfExtinction}
 	\end{mdframed}
 \end{figure}
@@ -610,13 +612,13 @@ Figure \ref{fig:firstGenerationToReach100Offspring} highlights the effect of sup
 
 Lloyd-Smith et al noted that if $ v \sim \text{Gamma} $ and if there is a Poisson mixture $ Z \sim \text{Poisson}(v) $, then that Poisson mixture simplifies to a negative binomial distribution. If $ Z $ is also the offspring distribution of a GWBP, then we can use the probability generating function of that negative binomial distribution to approximate the probability that a chain of transmissions becomes extinct. By first reparameterising the negative binomial distribution, we can express the probability generating function (as Lloyd-Smith et al did) in terms of $ R_0, k $. The derivation for that particular probability generating function is presented in \eqref{NegBinom_PGF}. By using the more general result of convergence presented in \eqref{BranchingProcessRecurrence}, we can approximate the probability of extinction by fixed point iteration, which is the process that Figure \ref{fig:probabilityOfExtinction} shows for different combinations of $ R_0, k $.
 
-In this honours project we use tick co-aggregation data, which is not similar to the contact trace datasets that Lloyd-Smith et al used. Before we can find the offspring distribution's parameters $ R_0 $ and $ k $, for use in a branching process analysis, we must introduce a method to derive a transmission network from the co-aggregation data. For our purposes, $ v $ is already represented in the co-aggregation data. We also test the negative binomial distribution is a good fit to the data.
+In this honours project we use count data of larvae per nymph. Before we can find the offspring distribution's parameters $ R_0 $ and $ k $, for use in a branching process analysis, we must introduce a method to derive a transmission network from the larval count data. For our purposes, $ v $ is already represented in the larval count data. We also test the negative binomial distribution is a good fit to the data.
 
 \newpage
 
 \section{Reparameterisation of the negative binomial distribution} \label{section_reparameterisationOfTheNegativeBinomialDistribution}
 
-While the work by Lloyd-Smith et al, presented above, uses the negative binomial distribution, it remains to be seen that it is the best fit for our tick co-aggregation data. To test it, we first need to derive the same parameterisation that Lloyd-Smith et al used. Then, it will be a candidate for the offspring distribution. Other candidate discrete distributions are the Poisson and geometric distributions; later in this project, we fit all distributions to the same data and then compare goodness-of-fit for each.
+While the work by Lloyd-Smith et al, presented above, uses the negative binomial distribution, it remains to be seen that it is the best fit for our tick larval count data. To test it, we first need to derive the same parameterisation that Lloyd-Smith et al used. Then, it will be a candidate for the offspring distribution. Other candidate discrete distributions are the Poisson and geometric distributions; later in this project, we fit all distributions to the same data and then compare goodness-of-fit for each.
 
 Commonly, the negative binomial distribution is presented as:
 
@@ -632,7 +634,7 @@ But, a more convenient parameterisation uses the sample mean $ m $ and dispersio
 
 Before fitting the distribution to some data the sample mean $ m $ can already be found from the data itself. Finding the dispersion parameter $ k $ is achievable with maximum likelihood estimation (MLE). Since the parameters $ m, k $ have asymptotically orthogonal limits \cite{LloydSmith2005}, then we can find $ k $ via MLE without doing so for $ m $, which is useful since $ m $ is known.
 
-Lloyd-Smith et al fit the reparameterised negative binomial distribution to contact trace data, where the sample mean for each dataset is $ m=R_0 $. An important nuance is that to find $ R_0 $ from tick co-aggregation data, since we do not have contact trace data, another step is required to account for stochasticity in transmission. So in this thesis, $ m \ne R_0 $, but we derive an expression for finding $ R_0 $ in a later section.
+Lloyd-Smith et al fit the reparameterised negative binomial distribution to contact trace data, where the sample mean for each dataset is $ m=R_0 $. An important nuance is that to find $ R_0 $ from counts of larvae per nymph, since we do not have contact trace data, another step is required to account for stochasticity in transmission. In this thesis $ m $ is the sample mean of larvae per nymph counts and $ m \ne R_0 $, but we derive an expression for finding $ R_0 $ in a later section.
 
 In this project, we tested the standard negative binomial distribution, available in Python's Scipy package, against the reparameterisation \eqref{NegBinomReparam} by fitting both distributions to the same data. Results indicate a similar fit. A link to the code is available in the appendix.
 
@@ -688,7 +690,7 @@ Then for each larvae that co-feeds with an infectious nymph, the probability tha
 
 $ \alpha $ will depend on the species of tick, the pathogen being transmitted, the vertebrate host ticks feed on, seasonal variation and perhaps other factors.
 
-The network thinking by Johnstone-Robertson et al, in their 2020 paper \cite{JohnstoneRobertson2020}, is important for this project. Their superimposition of tick-to-tick transmission onto the tick-host contact network is the inspiration for the following idea: we can use co-aggregation data to generate a nymph-larvae contact network for each nymph. The definitions below are placed into context in Figure \ref{fig:coaggregation_diagram}, which serves as a visual aide in understanding how we intend to find estimates for $ R_0 $ and $ k $.
+The network thinking by Johnstone-Robertson et al, in their 2020 paper \cite{JohnstoneRobertson2020}, is important for this project. Their superimposition of tick-to-tick transmission onto the tick-host contact network is the inspiration for the following idea: we can use count data of larvae per nymph to generate a nymph-larvae contact network for each nymph. The definitions below are placed into context in Figure \ref{fig:coaggregation_diagram}, which serves as a visual aide in understanding how we intend to find estimates for $ R_0 $ and $ k $.
 
 Let:
 
@@ -716,21 +718,21 @@ Let:
 
 \begin{description}[leftmargin=1cm, style=nextline]
 	\item[$ m = \frac{1}{n} \sum_i^n L_i $] be the mean of $ X $.
-	\item[$ L_i \sim \text{NB}(m, k) $] be the co-aggregation distribution, fit to $ X $. This is the reparameterised negative binomial distribution (\ref{NegBinomReparam}).
-	$ L_i $ is the number of larvae that are found in the co-aggregation data to co-feed with a nymph of index $ i $.
-	\item[$ I_{i,j} \sim \text{Bern}(p=\alpha) $] be a Bernoulli trial, or, a coin flip for each nymph of index $ i $ and for each larvae that it co-aggregates with, indexed by $ j \in 1:L_i $. This is a step where an infectious nymph generates a new infectious nymph in a branching process.
+	\item[$ X \sim \text{NB}(m, k) $] be the co-aggregation distribution, fit to $ X $. This is the reparameterised negative binomial distribution (\ref{NegBinomReparam}).
+	$ X_i $ is the number of larvae that are found to co-feed with a nymph of index $ i $.
+	\item[$ I_{i,j} \sim \text{Bern}(p=\alpha) $] be a Bernoulli trial, or, a coin flip for each nymph of index $ i $ and for each larvae that it co-aggregates with, indexed by $ j \in 1:X_i $. This is a step where an infectious nymph generates a new infectious nymph in a branching process.
 	\item[$ R_0 $] be the basic reproductive number. This is also the mean value of the offspring data $ Z $.
 	\item[$ Z \sim \text{NB}(R_0, k) $] be the offspring distribution. This can be achieved by  simulating offspring data $ Z $ using $ X, \alpha $ and then fitting the distribution to it.
 \end{description}
 
-To get the expected number of new infectious nymphs per current infectious nymph, dependent on the number of larvae that each infectious nymph co-feeds with, the number of new infections is a series of Bernoulli trials, where $ L_i $ is the number of trials. This is otherwise known as a binomial experiment:
+To get the expected number of new infectious nymphs per current infectious nymph, dependent on the number of larvae that each infectious nymph co-feeds with, the number of new infections is a series of Bernoulli trials, where $ X_i $ is the number of trials. This is otherwise known as a binomial experiment:
 
 \begin{align}
-    I_i &= \sum_j^{L_i} I_{i,j} \nonumber \\
-    I_i &\sim \text{Binom}(L_i,\alpha)\label{BinomialExperiment}
+    I_i &= \sum_j^{X_i} I_{i,j} \nonumber \\
+    I_i &\sim \text{Binom}(X_i,\alpha)\label{BinomialExperiment}
 \end{align}
 
-The expected value of the binomial distribution in \eqref{BinomialExperiment} is $ \mu_i = L_i \alpha $, which is the expected number of new infections for the nymph of index $ i $.
+The expected value of the binomial distribution in \eqref{BinomialExperiment} is $ \mu_i = X_i \alpha $, which is the expected number of new infections for the nymph of index $ i $.
 
 Then to determine $ R_0 $, which is the expected number of new infections in an offspring distribution, this is:
 
