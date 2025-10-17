@@ -14,26 +14,32 @@ def MLE(data, distribution, report=False):
         if report:
             print("MAXIMUM LIKELIHOOD ESTIMATION mu={0:.04f}, k={1:.04f}".format(params.m, 
                                                                                  params.k))
-        return fitted_distribution
     elif distribution is stats.geom:
         bounds = (0,1)
         fitted_distribution = stats.fit(distribution, data)
         if report:
             print("MAXIMUM LIKELIHOOD ESTIMATION p={0:.04f}".format(fitted_distribution.params.p))
-        return fitted_distribution
     elif distribution is stats.poisson:
         # The parameter is just the sample mean... but let scipy do it
         bounds = [(0,12)]
         fitted_distribution = stats.fit(distribution, data, bounds)
         if report:
             print("MAXIMUM LIKELIHOOD ESTIMATION mu={0:.04f}".format(fitted_distribution.params.mu))
-        return fitted_distribution
+    elif distribution is stats.powerlaw:
+        bounds = [(10**(-8),10**8)]
+        fitted_distribution = stats.fit(distribution, data, bounds)
+        if report:
+            print("MAXIMUM LIKELIHOOD ESTIMATION p={0:.04f}".format(fitted_distribution.params.a))
+    return fitted_distribution
 
 # See the notebook on calculating scaled AIC
 def get_delta_AIC_c(data, dist, params):
     k = len(params)
     n = len(data)
-    log_lik = dist.logpmf(data,*params).sum()
+    if dist is stats.powerlaw:
+        log_lik = dist.logpdf(data,*params).sum()
+    else:
+        log_lik = dist.logpmf(data,*params).sum()    
     AIC = 2*k - 2*log_lik
     AIC_c = AIC + (2*k*(k+1))/(n - k - 1)
     delta_AIC_c = AIC_c - min(data)
@@ -57,7 +63,13 @@ def plot_goodness_of_fit(e_cdf, coaggregation_per_nymph, years_display, tick_spe
     coaggregation_distribution_poisson = MLE(coaggregation_per_nymph, stats.poisson)
     poisson_cdf = stats.poisson.cdf(e_cdf.cdf.quantiles, mu=coaggregation_distribution_poisson.params.mu)
     plt.step(e_cdf.cdf.quantiles, poisson_cdf, label="poisson CDF")
-    
+
+    # POWERLAW DIST
+    coaggregation_distribution_powerlaw = MLE(coaggregation_per_nymph, stats.powerlaw)
+    powerlaw_cdf = stats.powerlaw.cdf(e_cdf.cdf.quantiles, a=coaggregation_distribution_powerlaw.params.a)
+    # It isn't useful to see this fit    
+    #plt.step(e_cdf.cdf.quantiles, powerlaw_cdf, label="powerlaw CDF")
+
     # EMPERICAL CDF
     plt.step(e_cdf.cdf.quantiles, e_cdf.cdf.probabilities, label="emperical CDF")
 
@@ -87,6 +99,12 @@ def plot_goodness_of_fit(e_cdf, coaggregation_per_nymph, years_display, tick_spe
     poisson_cdf = stats.poisson.cdf(e_cdf.cdf.quantiles, mu=coaggregation_distribution_poisson.params.mu)
     poisson_cdf_residuals = abs(e_cdf.cdf.probabilities - poisson_cdf)
     plt.plot(e_cdf.cdf.quantiles, poisson_cdf_residuals, label="poisson", marker="p", linewidth=0)
+
+    # POWERLAW DIST RESIDUALS
+    powerlaw_cdf = stats.powerlaw.cdf(e_cdf.cdf.quantiles, a=coaggregation_distribution_powerlaw.params.a)
+    powerlaw_cdf_residuals = abs(e_cdf.cdf.probabilities - powerlaw_cdf)
+    #It isn't useful to see this fit    
+    #plt.plot(e_cdf.cdf.quantiles, powerlaw_cdf_residuals, label="powerlaw", marker="o", linewidth=0)
     
     plt.legend()
     plt.title("Error: difference between eCDF and fitted CDFs")
@@ -98,13 +116,16 @@ def plot_goodness_of_fit(e_cdf, coaggregation_per_nymph, years_display, tick_spe
     plt.savefig(filename, dpi=300, bbox_inches="tight")
     plt.show()
 
-    poisson_scaled_AIC = get_delta_AIC_c(coaggregation_per_nymph, stats.poisson,        [coaggregation_distribution_poisson.params.mu])
-    geom_scaled_AIC    = get_delta_AIC_c(coaggregation_per_nymph, stats.geom,           [coaggregation_distribution_geom.params.p])
-    nbinom_scaled_AIC  = get_delta_AIC_c(coaggregation_per_nymph, nbinom_reparam,       [fitted_coaggregation_distribution_params.m,
-                                                                                        fitted_coaggregation_distribution_params.k_reciprocal])
+    poisson_scaled_AIC  = get_delta_AIC_c(coaggregation_per_nymph, stats.poisson,        [coaggregation_distribution_poisson.params.mu])
+    geom_scaled_AIC     = get_delta_AIC_c(coaggregation_per_nymph, stats.geom,           [coaggregation_distribution_geom.params.p])
+    nbinom_scaled_AIC   = get_delta_AIC_c(coaggregation_per_nymph, nbinom_reparam,       [fitted_coaggregation_distribution_params.m,
+                                                                                          fitted_coaggregation_distribution_params.k_reciprocal])
+    powerlaw_scaled_AIC = get_delta_AIC_c(coaggregation_per_nymph, stats.powerlaw,       [coaggregation_distribution_powerlaw.params.a])
 
+    print("Powerlaw", coaggregation_distribution_powerlaw.params.a)
     print("AIC OF CO-AGGREGATION DISTRIBUTIONS")
     print("Poisson scaled AIC:", poisson_scaled_AIC)
     print("Geom scaled AIC:",    geom_scaled_AIC)
     print("NBinom scaled AIC:",  nbinom_scaled_AIC)
+    print("Powerlaw scaled AIC:",  powerlaw_scaled_AIC)
 
