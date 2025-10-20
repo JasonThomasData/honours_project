@@ -167,17 +167,13 @@ This project uses a novel combination of Lorenz curves and a recent result for e
 
 \section*{Summary}
 
-MAKE SHORTER 200 WORDS, MAKE IT NON-TECHNICAL
+Ticks are parasitic arachnids that take blood meals from vertebrate hosts. That feeding behaviour is an opportunity for pathogens to spread to and from those hosts. Often pathogens will spread directly between closely feeding ticks.
 
-This thesis aims to predict the probability of extinction within a TBD network in a scenario where a single infectious nymph, a population of susceptible larvae, and a population of vertebrate hosts share a single habitat. To determine this probability, we find an offspring distribution and use a single-type GWBP, similar to the work by Lloyd-Smith et al \cite{LloydSmith2005}. However, where Lloyd-Smith et al used contact trace datasets for transmissions between people, we use field data that reports the larval and nymphal burdens (co-agggregation data) of vertebrate hosts that were collected in a survey at the Kielder Forest, in the United Kingdom, between 2004-2005 \cite{Bown2008, Bown2011}.
+This project implements what we believe is a novel technique to make use of common tick count data, combined with well-established numerical and stochastic techniques, to determine the probability that a chain of transmissions following a single infected tick becomes extinct. However, we restrict our analysis to transmission directly between ticks, which is known as co-feeding transmission. This project also uses a novel technique to measure the inequality in vertebrate hosts' potentials to act as superspreading hosts in co-feeding transmission, in the sense that some hosts attract a disproportionate number of ticks.
 
-We introduce a novel technique to measure and compare the heterogeneity in vertebrates' ranked transmission potentials for facilitating co-feeding, without first having to obtain an estimate for $ R_0 $. This uses Lorenz curves and is inspired by the work of Perkins et al \cite{Perkins_2003} and Johnstone-Robertson et al \cite{JohnstoneRobertson2020}.
+To make our analysis, we focus on data from the Kielder Forest in England, which concerns two species of ticks and two species of vertebrate hosts.
 
-This thesis introduces what we believe is a novel method to obtain the parameters $ R_0 $ and $ k $ needed for an offspring distribution directly from the empirical co-aggregation data. In this project, we are unable to precisely determine $ R_0 $ for each subset of Kielder Forest data, so we report a range of possible probabilities of extinction. However, it might be feasible for other researchers to obtain accurate estimates for some particular combinations of tick species, host species and environmental conditions. We report threshold values that would allow $ R_0 > 1 $ for each subset of data.
-
-To assist with understanding the probability of extinction within a TBD network, we re-implement many of the results by Lloyd-Smith et al. To find the parameters $ R_0 $ and $ k $, this project uses a reparameterised negative binomial distribution. We compare the goodness-of-fit for that distribution to the other distributions, and find that the negative binomial is either the best fit or close to the best in each case, which matches the findings of Lloyd-Smith et al. To help put many results in context, we re-implement and modify some simulations and visualisations made by Lloyd-Smith et al. 
-
-To help more people use the results of this research, a link to all code used to generate the analysis and figures is provided in the Appendix. The Discussion addresses as many assumptions as possible, alternative assumptions, and the consequences of using those assumptions.
+This project shows that some combinations of tick, host and pathogen could allow for pathogens to persist in nature if several conditions are met. Future researchers could use the method presented here to approximate the probability of extinction for co-feeding transmissions.
 
 \thispagestyle{empty}
 \addtocounter{page}{-1}
@@ -313,7 +309,7 @@ where $ k_{in} $ is the number of nymphs and $ k_{out} $ is the number of larvae
 
 \subsection{Galton-Watson Branching Processes}
 
-A Galton-Watson Branching Process (GWBP) is a useful device for analysing how a disease spreads, but its original use was concerned with the extinction of families in Victorian Britain \cite{Athreya1972}. Whether a family becomes extinct because each father has no sons to carry on the family name, or a disease outbreak becomes extinct because each infected individual infects no one else, are addressed with the same technique.
+A Galton-Watson Branching Process (GWBP) is a useful device for analysing how a disease spreads, but its original use was concerned with the extinction of surnames in Victorian Britain \cite{Athreya1972}. A surname that becomes extinct because each father has no sons to carry on the family name, and a disease outbreak becomes extinct because enough infected individuals infect no one else, are in fact the same kind of problem. The key to understand both situations is that each individual has the chance to produce offspring in a stochastic process.
 
 A single-type GWBP branching process is such that all offspring, in all generations, belong to the same category; for a TBD, that could mean a specific species, particular life stage or infected by a particular pathogen. GWBP are also discrete-time Markov chains; the number of offspring in generation $ n $ depends on the probability of extinction in generation $ n - 1 $, but not on previous generations \cite{Allen2019}.
 
@@ -339,7 +335,7 @@ Now, let $ z_n $ be the probability that the chain is extinct after $ n $ genera
 
 Note this has the Markov property, since the probability of extinction for generation $ n $ only relies on generation $ n-1 $.
 
-This indicates $ z_n $ increases monotonically. But since all $ |z_n| \le 1 $, then this series converges, which leads to the simplification $ z = g(z) $. Thanks to that simplification, we find that the function is equal to its independent variable, and that means we can find an approximation for it via fixed point iteration. While that result is useful, we can avoid the calculation when extinction is guaranteed.: since $ R_0 $ is known \eqref{offspringR0}, then we can use $ R_0 \le 1 \implies z_{\infty} = 1 $ \cite{Diekman2000}.
+This indicates $ z_n $ increases monotonically. But since all $ |z_n| \le 1 $, then this series converges, which leads to the simplification $ z = g(z) $. Thanks to that simplification, we find that the function is equal to its independent variable, and that means we can find an approximation for it via fixed point iteration. While that result is useful, we can avoid the calculation when extinction is guaranteed: since $ R_0 $ is known \eqref{offspringR0}, then we can use $ R_0 \le 1 \implies z_{\infty} = 1 $ \cite{Diekman2000}.
 
 The single-type branching process defined above is useful when offspring are the same type as their parent \cite{Allen2019}. However, many disease systems can be modelled using a multi-type branching process, which are capable of representing more complex systems that have more than just one pathogen, multiple species of host, and ticks in multiple different life-stages.
 
