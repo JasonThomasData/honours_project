@@ -307,7 +307,7 @@ The work by \citet{LloydSmith2005} introduced the notion of an individual reprod
 \begin{align}\label{PoissonMixture}
 	\text{if} & \space &v \sim \text{Gamma}\left(R_0, \frac{R_0}{k}\right) \nonumber \\
 	\text{and} & \space &Z \sim \text{Poisson}(v) \\
-	\text{then} & \space &Z \sim \text{NB}(R_0, k) \nonumber
+	\text{then} & \space &Z \sim \text{NB}(R_0, k). \nonumber
 \end{align}
 
 This is useful for several reasons. It allows us to query the effect of individual heterogeneity, and \citet{LloydSmith2005} found systems with high individual variation had infrequent but explosive outbreaks. We can treat the fitted NB distribution as an offspring distribution, which is defined in \ref{GW_intro}. It allows for estimating the probability that a chain of transmission becomes extinct via numerical approximation.
@@ -350,7 +350,7 @@ For a single-type GWBP, let $ z $ be the probability of extinction, and introduc
 
 Now, let $ z_n $ be the probability that the chain is extinct at or before $ n $ generations. Then substitute $ z_n = g(z_{n-1})$.
 
-$ z $ is applied to individuals in the branching process in the sense that for extinction to occur, every individual must have $ 0 $ offspring. The intuition for the $ z^k $ term is if there are $ k $ individuals then the probability $ z $ must be considered $ k $ times, since we require all individuals at that point to have no offspring.
+The intuition for the $ z^k $ term is if there are $ k $ individuals then the probability $ z $ must be considered $ k $ times, since we require all individuals at that point to have no offspring. $ z $ is applied to individuals in the branching process in the sense that for extinction to occur, every infected individual must have $ 0 $ offspring. 
 
 \begin{equation}\label{BranchingProcessRecurrence}
     z_{n} = g(z_{n-1}) = \sum_{k=0}^\infty q_k (z_{n-1})^k
@@ -372,7 +372,7 @@ In this thesis, we model transmission as infectious nymphs beget new infectious 
 
 This project makes use of data provided by Dr Kevin Bown, who has used the same data to author several papers \citep{Bown2008, bown2009, Bown2011}. The data was collected in surveys in the Kielder Forest in the United Kingdom in 2004 and 2005. The provided dataset contains the numbers of larvae and nymphs found on each vertebrate, where vertebrates were included in the collection once only. 
 
-The data includes only the tick species \textit{I. trianguliceps} and  \textit{I. ricinus}. The host species were mostly 'field voles', (\textit{Microtus agrestis}), and 'common shrews' (\textit{Sorex araneus}). The researchers also encountered small numbers of other small mammals. The common shrew and field voles vastly outnumber other vertebrate hosts in the Kielder Forest data. The use of that data in this project focuses on the common shrew and field vole observations. 
+The data includes only the tick species \textit{I. trianguliceps} and  \textit{I. ricinus}. The host species were mostly `field voles', (\textit{Microtus agrestis}), and `common shrews' (\textit{Sorex araneus}). The researchers also encountered small numbers of other small mammals. The common shrew and field voles vastly outnumber other vertebrate hosts in the Kielder Forest data. The use of that data in this project focuses on the common shrew and field vole observations. 
 
 \subsection{Evidence of co-aggregation}
 
@@ -485,7 +485,7 @@ We used the SciPy package in Python to perform the test. We found weak evidence 
 	\end{mdframed}
 \end{table}
 
-Assuming confidence of $ 0.95 $, then the p-value $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of co-aggregation. It is interesting that later in this project, we show co-feeding transmission between \textit{I. trianguliceps} that co-feed on \textit{field voles} will not allow for a pathogen's survival.
+Assuming confidence of $ 0.95 $, then the p-value $ > 0.05 $ of \textit{I.trianguliceps} on field voles means we cannot reject the null hypothesis that there does not exist a monotonic relationship between the counts of larvae and nymphs for that combination of tick and host species. This pair of tick and vertebrate host species also has the lowest overall number of larvae, indicating low levels of parasitism. It is interesting that later in this project, we show co-feeding transmission between \textit{I. trianguliceps} that co-feed on \textit{field voles} will not allow for a pathogen's survival.
 
 \subsection{Tick burden heterogeneity} 
 
@@ -733,12 +733,12 @@ Conceptually, to find an offspring distribution we could i) fit a discrete distr
 Here we place existing variables into greater context:
 
 \begin{description}[leftmargin=4cm, style=multiline]
-	\item[$ m = \frac{1}{n} \sum_i^n L_i $] : the mean of $ X $.
-	\item[$ X \sim \text{NB}(m, k) $] : the co-aggregation distribution, fit to $ X $. This is the reparameterised NB distribution (\ref{NegBinomReparam}).
+	\item[$ m = \frac{1}{n} \sum_i^n L_i $] : is the mean of $ X $.
+	\item[$ X \sim \text{NB}(m, k) $] : is the co-aggregation distribution, fit to $ X $. This is the reparameterised NB distribution (\ref{NegBinomReparam}).
 	$ X_i $ is the number of larvae that are found to co-feed with a nymph of index $ i $.
-	\item[$ I_{i,j} \sim \text{Bern}(p=\alpha) $] : a Bernoulli trial for each nymph of index $ i $ and for each larvae that it co-aggregates with, indexed by $ j \in 1:X_i $. This is a step where an infectious nymph generates a new infectious nymph in a branching process.
-	\item[$ R_0 $] : the basic reproductive number. This is also the mean value of the offspring data $ Z $.
-	\item[$ Z \sim \text{NB}(R_0, k) $] : the offspring distribution. This can be achieved by  simulating offspring data $ Z $ using $ X, \alpha $ and then fitting the distribution to it.
+	\item[$ I_{i,j} \sim \text{Bern}(p=\alpha) $] : is a Bernoulli trial for each nymph of index $ i $ and for each larvae that it co-aggregates with, indexed by $ j \in 1:X_i $. This is a step where an infectious nymph generates a new infectious nymph in a branching process.
+	\item[$ R_0 $] : is the basic reproductive number. This is also the mean value of the offspring data $ Z $.
+	\item[$ Z \sim \text{NB}(R_0, k) $] : is the offspring distribution. This can be achieved by  simulating offspring data $ Z $ using $ X, \alpha $ and then fitting the distribution to it.
 \end{description}
 
 To get the expected number of new infectious nymphs per current infectious nymph, dependent on the number of larvae that each infectious nymph co-feeds with, the number of new infections is a series of Bernoulli trials, where $ X_i $ is the number of trials. This is otherwise known as a binomial experiment:
@@ -756,7 +756,7 @@ Then to determine $ R_0 $, which is the expected number of new infections in an 
     R_0 &= \frac{1}{n} \sum_i^n \mu_i \nonumber \\
     R_0 &= \frac{1}{n} \sum_i^n L_i \alpha \nonumber \\
     R_0 &= \alpha \frac{1}{n} \sum_i^n L_i \nonumber \\
-    R_0 &= \alpha m \label{FindingR0FromCoaggregationMean}
+    R_0 &= \alpha m \label{FindingR0FromCoaggregationMean}.
 \end{align}
 
 Since the reparameterised NB distribution has parameters with asymptotically orthogonal limits, then $ k $ will not vary between the distributions fitted to $ X $ and $ Z $. This implies that we can obtain the parameters of $ Z $, $ R_0 $ and $ k $, directly from the distribution fitted to $ X $.
@@ -1003,7 +1003,7 @@ To see the effect of $ k $ in each subset of Kielder Forest data, we can instead
 	\begin{mdframed}[backgroundcolor=grey250,rightline=false,leftline=false,topline=false]
 		\centering
 		\includegraphics[width=.73\linewidth,valign=m]{allCombinations_populationsOfOutbreaksThatWentExtinct}
-		\caption{The cumulative population sizes of outbreaks that became extinct where $ R_0 = 1.5 $, for all combinations of Kielder Forest data that have $ m \ge 1 $. The values in square brackets are mean of outbreak cumulative population sizes. These results show that for low values of $ k $, outbreaks frequently reach extreme sizes but still become extinct.}
+		\caption{The cumulative numbers of infected individuals in extinct outbreaks, where $ R_0 = 1.5 $, for all combinations of Kielder Forest data that have $ m \ge 1 $. The values in square brackets are means of outbreak cumulative population sizes. These results show that for low values of $ k $, outbreaks frequently reach extreme sizes but still become extinct.}
 		\label{fig:allCombinations_populationsOfOutbreaksThatWentExtinct}
 	\end{mdframed}
 \end{figure}
