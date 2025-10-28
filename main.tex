@@ -305,9 +305,9 @@ The work of \citet{LloydSmith2005} showed that the negative binomial (NB) distri
 The work by \citet{LloydSmith2005} introduced the notion of an individual reproductive number $ v $, which represents individuals' variation in disease history. They represented this as a gamma-distributed random variable and used that in a Poisson mixture to derive a NB distribution, as below:
 
 \begin{align}\label{PoissonMixture}
-	\text{if} & \space &v \sim \text{Gamma}\left(R_0, \frac{R_0}{k}\right) \nonumber \\
-	\text{and} & \space &Z \sim \text{Poisson}(v) \\
-	\text{then} & \space &Z \sim \text{NB}(R_0, k). \nonumber
+	\text{\textbf{if}} \text{      } & v \sim \text{Gamma}\left(R_0, \frac{R_0}{k}\right) \text{      \textbf{and}} \nonumber \\
+	\space & Z \sim \text{Poisson}(v) \text{      \textbf{then}} \\
+    \space & Z \sim \text{NB}(R_0, k). \nonumber
 \end{align}
 
 This is useful for several reasons. It allows us to query the effect of individual heterogeneity, and \citet{LloydSmith2005} found systems with high individual variation had infrequent but explosive outbreaks. We can treat the fitted NB distribution as an offspring distribution, which is defined in \ref{GW_intro}. It allows for estimating the probability that a chain of transmission becomes extinct via numerical approximation.
@@ -1047,7 +1047,7 @@ The analysis presented here indicates that for Kielder Forest, and for some comb
 
 \section{Appendix}
 
-The author completed all analysis using Python and Jupyter notebooks, and compiled this document using LaTeX (TeXstudio). All analysis, code, and LaTeX source files are available at \url{https://github.com/JasonThomasData/honours_project}.
+The author completed all analysis using Python and Jupyter notebooks, and compiled this document using \LaTeX \space (TeXstudio). All analysis, code, and \LaTeX \space source files are available at \url{https://github.com/JasonThomasData/honours_project}.
 
 Figures \ref{fig:graphical_abstract}, \ref{fig:coaggregation_diagram} were made using \url{https://app.diagrams.net/}.
 
